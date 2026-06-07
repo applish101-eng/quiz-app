@@ -1372,6 +1372,783 @@ export const quizData: Question[] = [
     correctAnswer: 'Profit',
     explanation: 'In maximization transportation problems, the goal is to maximize total profit rather than minimize cost.',
   },
+  // ===== Unit 4: Queuing Theory =====
+  {
+    id: 171,
+    subject: 'operationalResearch',
+    unit: 4,
+    question: 'Kendall\'s notation M/M/1 represents a queuing system with:',
+    options: [
+      'Poisson arrival, Exponential service, 1 server',
+      'Markov arrival, Markov service, 1 server',
+      'Both Poisson/Markov arrival and service, 1 server',
+      'Random arrival, Random service, 1 server',
+    ],
+    correctAnswer: 'Both Poisson/Markov arrival and service, 1 server',
+    explanation: 'In Kendall\'s notation, M stands for Markovian (Poisson/exponential distribution), and 1 represents the number of servers.',
+  },
+  {
+    id: 172,
+    subject: 'operationalResearch',
+    unit: 4,
+    question: 'In an M/M/1 queuing system, the utilization factor (traffic intensity) is given by:',
+    options: ['λ/μ', 'μ/λ', 'λμ', '1/(λμ)'],
+    correctAnswer: 'λ/μ',
+    explanation:
+      'Traffic intensity ρ = λ/μ, where λ = arrival rate and μ = service rate. The system is stable only when ρ < 1.',
+  },
+  {
+    id: 173,
+    subject: 'operationalResearch',
+    unit: 4,
+    question: 'Little\'s Law in queuing theory states that:',
+    options: ['L = λ/W', 'L = λW', 'L = W/λ', 'L = λ + W'],
+    correctAnswer: 'L = λW',
+    explanation:
+      'Little\'s Law states that the average number of customers in the system (L) equals the arrival rate (λ) multiplied by the average time spent in the system (W).',
+  },
+  {
+    id: 174,
+    subject: 'operationalResearch',
+    unit: 4,
+    question: 'For a stable queuing system, which condition must hold?',
+    options: ['λ > μ', 'λ < μ', 'λ = μ', 'λ ≥ μ'],
+    correctAnswer: 'λ < μ',
+    explanation:
+      'For stability, the arrival rate (λ) must be less than the service rate (μ). Otherwise, the queue grows indefinitely.',
+  },
+  {
+    id: 175,
+    subject: 'operationalResearch',
+    unit: 4,
+    question: 'In queuing theory, "reneging" refers to:',
+    options: [
+      'Switching between queues',
+      'Leaving the queue after waiting',
+      'Joining a queue',
+      'Serving a customer',
+    ],
+    correctAnswer: 'Leaving the queue after waiting',
+    explanation:
+      'Reneging occurs when a customer joins a queue but leaves before being served due to impatience or long waiting time.',
+  },
+  {
+    id: 176,
+    subject: 'operationalResearch',
+    unit: 4,
+    question: 'The average number of customers waiting in queue (Lq) for M/M/1 model is:',
+    options: ['ρ²/(1-ρ)', 'ρ/(1-ρ)', 'ρ²/2(1-ρ)', '1/ρ'],
+    correctAnswer: 'ρ²/(1-ρ)',
+    explanation:
+      'For M/M/1, Lq = ρ²/(1-ρ) where ρ = λ/μ is the utilization factor.',
+  },
+  {
+    id: 177,
+    subject: 'operationalResearch',
+    unit: 4,
+    question: 'In Kendall\'s notation A/B/C, what does C represent?',
+    options: ['Number of customers', 'Number of servers', 'Capacity of system', 'Queue discipline'],
+    correctAnswer: 'Number of servers',
+    explanation:
+      'In Kendall\'s notation A/B/C, A = arrival distribution, B = service distribution, C = number of parallel servers.',
+  },
+  {
+    id: 178,
+    subject: 'operationalResearch',
+    unit: 4,
+    question: 'The average waiting time in the system (Ws) for an M/M/1 queue is:',
+    options: ['1/(μ-λ)', '1/(λ-μ)', 'λ/μ', 'μ/(μ-λ)'],
+    correctAnswer: '1/(μ-λ)',
+    explanation:
+      'The average time a customer spends in the system Ws = 1/(μ-λ), where μ is service rate and λ is arrival rate.',
+  },
+  {
+    id: 179,
+    subject: 'operationalResearch',
+    unit: 4,
+    question: 'The probability that the system is idle (P₀) in M/M/1 is:',
+    options: ['1-ρ', 'ρ', '1-ρ²', 'ρ/(1-ρ)'],
+    correctAnswer: '1-ρ',
+    explanation:
+      'The probability of zero customers in the system (idle) is P₀ = 1-ρ, where ρ = λ/μ is the utilization factor.',
+  },
+  {
+    id: 180,
+    subject: 'operationalResearch',
+    unit: 4,
+    question: 'A queuing system has λ = 4 customers/hour and μ = 8 customers/hour. The utilization factor is:',
+    options: ['0.25', '0.5', '0.75', '1.0'],
+    correctAnswer: '0.5',
+    explanation: 'Utilization factor ρ = λ/μ = 4/8 = 0.5, meaning the server is busy 50% of the time.',
+  },
+  {
+    id: 181,
+    subject: 'operationalResearch',
+    unit: 4,
+    question: '"Balking" in queuing theory refers to:',
+    options: [
+      'Leaving after waiting',
+      'Deciding not to join the queue',
+      'Switching queues',
+      'Serving multiple customers',
+    ],
+    correctAnswer: 'Deciding not to join the queue',
+    explanation:
+      'Balking occurs when a customer looks at the queue length and decides not to join it at all.',
+  },
+  {
+    id: 182,
+    subject: 'operationalResearch',
+    unit: 4,
+    question: 'In queuing theory, FCFS stands for:',
+    options: [
+      'First Come, First Served',
+      'First Class, First Service',
+      'Fast Customer, Fast Service',
+      'Final Check, Final Service',
+    ],
+    correctAnswer: 'First Come, First Served',
+    explanation:
+      'FCFS (First Come, First Served) is a queue discipline where customers are served in order of arrival.',
+  },
+  {
+    id: 183,
+    subject: 'operationalResearch',
+    unit: 4,
+    question: 'The average number of customers in the system (L) for M/M/1 is:',
+    options: ['ρ/(1-ρ)', 'ρ²/(1-ρ)', '1/(1-ρ)', 'ρ/(1-ρ²)'],
+    correctAnswer: 'ρ/(1-ρ)',
+    explanation:
+      'For M/M/1, L = ρ/(1-ρ), which gives the average number of customers in the entire system (queue + service).',
+  },
+  {
+    id: 184,
+    subject: 'operationalResearch',
+    unit: 4,
+    question: 'If λ = 6 per hour and μ = 10 per hour in M/M/1, the average time waiting in queue (Wq) is:',
+    options: ['0.15 hours', '0.25 hours', '0.35 hours', '0.45 hours'],
+    correctAnswer: '0.15 hours',
+    explanation:
+      'ρ = 6/10 = 0.6. Wq = Lq/λ = (ρ²/(1-ρ))/λ = (0.36/0.4)/6 = 0.9/6 = 0.15 hours.',
+  },
+  {
+    id: 185,
+    subject: 'operationalResearch',
+    unit: 4,
+    question: 'Which of the following is NOT a basic component of a queuing system?',
+    options: ['Arrival process', 'Service mechanism', 'Queue discipline', 'Profit maximization'],
+    correctAnswer: 'Profit maximization',
+    explanation:
+      'The basic components are arrival process, service mechanism, queue discipline, and queue configuration. Profit maximization is an objective, not a component.',
+  },
+  {
+    id: 186,
+    subject: 'operationalResearch',
+    unit: 4,
+    question: 'A queue where customers arrive from a large population is called:',
+    options: ['Finite queue', 'Infinite queue', 'Finite source', 'Infinite source'],
+    correctAnswer: 'Infinite source',
+    explanation:
+      'An infinite source (or infinite population) queue assumes the arrival population is large enough that the arrival rate is unaffected by the number of customers already in the system.',
+  },
+  {
+    id: 187,
+    subject: 'operationalResearch',
+    unit: 4,
+    question: 'M/D/1 in Kendall\'s notation represents which service distribution?',
+    options: ['Exponential', 'Deterministic (constant)', 'General', 'Poisson'],
+    correctAnswer: 'Deterministic (constant)',
+    explanation:
+      'In Kendall\'s notation, D stands for Deterministic (constant) service time. M/D/1 means Poisson arrivals, constant service time, 1 server.',
+  },
+  {
+    id: 188,
+    subject: 'operationalResearch',
+    unit: 4,
+    question: 'The study of queuing theory was pioneered by:',
+    options: ['A.K. Erlang', 'Newton', 'Einstein', 'Gauss'],
+    correctAnswer: 'A.K. Erlang',
+    explanation:
+      'A.K. Erlang, a Danish engineer, pioneered queuing theory in the early 20th century while working on telephone traffic problems.',
+  },
+  // ===== Unit 5: Inventory Control =====
+  {
+    id: 189,
+    subject: 'operationalResearch',
+    unit: 5,
+    question: 'The formula for Economic Order Quantity (EOQ) is:',
+    options: ['√(2DS/H)', '√(DS/H)', '√(2DH/S)', 'D/√(2SH)'],
+    correctAnswer: '√(2DS/H)',
+    explanation:
+      'EOQ = √(2DS/H), where D = annual demand, S = ordering cost per order, H = holding cost per unit per year.',
+  },
+  {
+    id: 190,
+    subject: 'operationalResearch',
+    unit: 5,
+    question: 'Holding cost is also known as:',
+    options: ['Ordering cost', 'Carrying cost', 'Setup cost', 'Procurement cost'],
+    correctAnswer: 'Carrying cost',
+    explanation:
+      'Holding cost (or carrying cost) includes storage, insurance, spoilage, and opportunity cost of holding inventory.',
+  },
+  {
+    id: 191,
+    subject: 'operationalResearch',
+    unit: 5,
+    question: 'In ABC analysis, Class A items typically account for:',
+    options: [
+      '70-80% of total inventory value, 10-20% of items',
+      '10-20% of total inventory value, 70-80% of items',
+      '50% of both value and items',
+      '30% of both value and items',
+    ],
+    correctAnswer: '70-80% of total inventory value, 10-20% of items',
+    explanation:
+      'Class A items are the most valuable, representing 70-80% of total inventory value but only 10-20% of total items.',
+  },
+  {
+    id: 192,
+    subject: 'operationalResearch',
+    unit: 5,
+    question: 'The reorder point (ROP) without safety stock is calculated as:',
+    options: ['Daily demand × Lead time', 'EOQ / 2', 'Annual demand / Order quantity', 'Safety stock × Lead time'],
+    correctAnswer: 'Daily demand × Lead time',
+    explanation:
+      'ROP = d × L, where d = daily demand and L = lead time in days. This determines when to place a new order.',
+  },
+  {
+    id: 193,
+    subject: 'operationalResearch',
+    unit: 5,
+    question: 'Which cost decreases as order quantity increases?',
+    options: ['Holding cost', 'Carrying cost', 'Ordering cost', 'Material cost'],
+    correctAnswer: 'Ordering cost',
+    explanation:
+      'As order quantity increases, fewer orders are placed per year, so the total annual ordering cost decreases.',
+  },
+  {
+    id: 194,
+    subject: 'operationalResearch',
+    unit: 5,
+    question: 'Safety stock is maintained to:',
+    options: [
+      'Reduce ordering cost',
+      'Protect against uncertainty in demand and lead time',
+      'Increase inventory turnover',
+      'Reduce holding cost',
+    ],
+    correctAnswer: 'Protect against uncertainty in demand and lead time',
+    explanation:
+      'Safety stock acts as a buffer to prevent stockouts when actual demand or lead time exceeds the forecasted values.',
+  },
+  {
+    id: 195,
+    subject: 'operationalResearch',
+    unit: 5,
+    question: 'In the basic EOQ model, total annual inventory cost includes:',
+    options: [
+      'Ordering cost + Holding cost',
+      'Ordering cost + Material cost',
+      'Holding cost + Shortage cost',
+      'Material cost + Holding cost',
+    ],
+    correctAnswer: 'Ordering cost + Holding cost',
+    explanation:
+      'The basic EOQ model minimizes total cost = annual ordering cost + annual holding cost. Material cost is constant and not affected by order quantity.',
+  },
+  {
+    id: 196,
+    subject: 'operationalResearch',
+    unit: 5,
+    question: 'Lead time in inventory management refers to:',
+    options: [
+      'Time to manufacture products',
+      'Time between placing an order and receiving it',
+      'Time to sell inventory',
+      'Time to transport goods',
+    ],
+    correctAnswer: 'Time between placing an order and receiving it',
+    explanation:
+      'Lead time is the time delay between when an order is placed and when it is received in inventory.',
+  },
+  {
+    id: 197,
+    subject: 'operationalResearch',
+    unit: 5,
+    question: 'Inventory turnover ratio is calculated as:',
+    options: [
+      'Cost of goods sold / Average inventory',
+      'Average inventory / Cost of goods sold',
+      'Sales / Inventory',
+      'Inventory / Sales',
+    ],
+    correctAnswer: 'Cost of goods sold / Average inventory',
+    explanation:
+      'Inventory turnover ratio = COGS / Average inventory. It measures how quickly inventory is sold and replaced.',
+  },
+  {
+    id: 198,
+    subject: 'operationalResearch',
+    unit: 5,
+    question: 'In the EOQ model, total annual ordering cost = ?',
+    options: ['(D/Q) × S', '(Q/2) × H', 'D × S', 'Q × H'],
+    correctAnswer: '(D/Q) × S',
+    explanation:
+      'Total annual ordering cost = (D/Q) × S, where D = annual demand, Q = order quantity, S = cost per order.',
+  },
+  {
+    id: 199,
+    subject: 'operationalResearch',
+    unit: 5,
+    question: 'A stockout occurs when:',
+    options: [
+      'Inventory level reaches zero',
+      'Inventory is too high',
+      'New shipment arrives early',
+      'Demand decreases suddenly',
+    ],
+    correctAnswer: 'Inventory level reaches zero',
+    explanation:
+      'A stockout (or shortage) occurs when inventory is depleted and demand cannot be fulfilled from current stock.',
+  },
+  {
+    id: 200,
+    subject: 'operationalResearch',
+    unit: 5,
+    question: 'Fixed order interval system is also known as:',
+    options: ['P-system', 'Q-system', 'EOQ system', 'ABC system'],
+    correctAnswer: 'P-system',
+    explanation:
+      'In the P-system (periodic review system), orders are placed at fixed time intervals, unlike the Q-system where a fixed quantity is ordered when stock reaches reorder point.',
+  },
+  {
+    id: 201,
+    subject: 'operationalResearch',
+    unit: 5,
+    question: 'Which of the following is an assumption of the basic EOQ model?',
+    options: [
+      'Demand varies throughout the year',
+      'Lead time is constant',
+      'Quantity discounts are available',
+      'Holding cost varies with order quantity',
+    ],
+    correctAnswer: 'Lead time is constant',
+    explanation:
+      'The basic EOQ model assumes constant demand, constant lead time, and no quantity discounts.',
+  },
+  {
+    id: 202,
+    subject: 'operationalResearch',
+    unit: 5,
+    question: 'If annual demand is 10,000 units, ordering cost is Rs. 100 per order, and holding cost is Rs. 2 per unit per year, the EOQ is:',
+    options: ['500 units', '1000 units', '1500 units', '2000 units'],
+    correctAnswer: '1000 units',
+    explanation:
+      'EOQ = √(2DS/H) = √(2 × 10000 × 100 / 2) = √(1,000,000) = 1000 units.',
+  },
+  // ===== Unit 6: Replacement Theory =====
+  {
+    id: 203,
+    subject: 'operationalResearch',
+    unit: 6,
+    question: 'Replacement theory is primarily concerned with:',
+    options: [
+      'Financial asset management',
+      'Machines and equipment that deteriorate with time',
+      'Human resource planning',
+      'Marketing strategy',
+    ],
+    correctAnswer: 'Machines and equipment that deteriorate with time',
+    explanation:
+      'Replacement theory deals with decisions about when to replace aging equipment whose operating costs increase over time.',
+  },
+  {
+    id: 204,
+    subject: 'operationalResearch',
+    unit: 6,
+    question: 'The economic life of equipment is the period when:',
+    options: [
+      'Initial cost is minimum',
+      'Total annual cost is minimum',
+      'Maintenance cost is minimum',
+      'Salvage value is maximum',
+    ],
+    correctAnswer: 'Total annual cost is minimum',
+    explanation:
+      'Economic life is the optimal replacement interval that minimizes the total average annual cost (capital cost + operating cost).',
+  },
+  {
+    id: 205,
+    subject: 'operationalResearch',
+    unit: 6,
+    question: 'Group replacement policy is most suitable for:',
+    options: [
+      'Expensive items',
+      'Items that fail suddenly and are cheap to replace individually',
+      'Items that deteriorate gradually',
+      'Items with high maintenance cost',
+    ],
+    correctAnswer: 'Items that fail suddenly and are cheap to replace individually',
+    explanation:
+      'Group replacement is ideal when items (e.g., light bulbs) fail suddenly, are inexpensive to replace individually, and the cost of individual replacement is high due to setup/labor.',
+  },
+  {
+    id: 206,
+    subject: 'operationalResearch',
+    unit: 6,
+    question: 'Individual replacement policy is preferred when:',
+    options: [
+      'Cost of item is very low',
+      'Failure of item causes significant disruption',
+      'Many items fail at the same time',
+      'Items are easily available',
+    ],
+    correctAnswer: 'Failure of item causes significant disruption',
+    explanation:
+      'Individual replacement is used when item failure is critical and causes major disruption, so failed items are replaced immediately as they fail.',
+  },
+  {
+    id: 207,
+    subject: 'operationalResearch',
+    unit: 6,
+    question: 'The need for replacement arises due to:',
+    options: ['Physical deterioration', 'Obsolescence', 'Both physical deterioration and obsolescence', 'None of the above'],
+    correctAnswer: 'Both physical deterioration and obsolescence',
+    explanation:
+      'Replacement may be needed due to physical deterioration (wear and tear) or obsolescence (technological advancement making the old equipment outdated).',
+  },
+  {
+    id: 208,
+    subject: 'operationalResearch',
+    unit: 6,
+    question: 'The sum of money received from selling an old asset is called:',
+    options: ['Book value', 'Salvage value', 'Present value', 'Depreciation'],
+    correctAnswer: 'Salvage value',
+    explanation:
+      'Salvage value (or scrap value) is the estimated resale value of an asset at the end of its useful life.',
+  },
+  {
+    id: 209,
+    subject: 'operationalResearch',
+    unit: 6,
+    question: 'Which depreciation method assumes the asset loses value at a constant annual rate?',
+    options: ['Straight line method', 'Declining balance method', 'Sum of years digits', 'Double declining method'],
+    correctAnswer: 'Straight line method',
+    explanation:
+      'The straight line method spreads the cost of the asset equally over its useful life, resulting in constant annual depreciation.',
+  },
+  {
+    id: 210,
+    subject: 'operationalResearch',
+    unit: 6,
+    question: 'The optimal replacement interval minimizes:',
+    options: [
+      'Initial cost per year',
+      'Average total cost per year',
+      'Maintenance cost per year',
+      'Operating cost per year',
+    ],
+    correctAnswer: 'Average total cost per year',
+    explanation:
+      'The optimal replacement age is when the average total cost per year (including capital recovery and operating costs) is at its minimum.',
+  },
+  {
+    id: 211,
+    subject: 'operationalResearch',
+    unit: 6,
+    question: 'Money spent on repairs and upkeep of equipment is called:',
+    options: ['Capital cost', 'Maintenance cost', 'Operating cost', 'Sunk cost'],
+    correctAnswer: 'Maintenance cost',
+    explanation:
+      'Maintenance cost includes all expenses incurred to keep equipment in working condition, such as repairs, lubrication, and parts replacement.',
+  },
+  {
+    id: 212,
+    subject: 'operationalResearch',
+    unit: 6,
+    question: 'Obsolescence refers to loss of value due to:',
+    options: ['Physical wear and tear', 'Technological advancement', 'Natural disasters', 'Poor maintenance'],
+    correctAnswer: 'Technological advancement',
+    explanation:
+      'Obsolescence is the loss of value caused by newer, more efficient technology making the existing equipment outdated, even if it is still physically functional.',
+  },
+  {
+    id: 213,
+    subject: 'operationalResearch',
+    unit: 6,
+    question: 'In replacement theory, "sunk cost" refers to:',
+    options: [
+      'Future maintenance cost',
+      'Cost already incurred that cannot be recovered',
+      'Initial purchase price',
+      'Operating cost',
+    ],
+    correctAnswer: 'Cost already incurred that cannot be recovered',
+    explanation:
+      'Sunk costs are past costs that have already been incurred and cannot be recovered. They should not influence replacement decisions.',
+  },
+  {
+    id: 214,
+    subject: 'operationalResearch',
+    unit: 6,
+    question: 'The replacement decision should be based on:',
+    options: [
+      'Original cost of the asset',
+      'Past maintenance costs',
+      'Comparison of annual costs of defender vs challenger',
+      'Book value of the asset',
+    ],
+    correctAnswer: 'Comparison of annual costs of defender vs challenger',
+    explanation:
+      'The rational replacement decision compares the annual cost of keeping the existing equipment (defender) with that of the new equipment (challenger).',
+  },
+  {
+    id: 215,
+    subject: 'operationalResearch',
+    unit: 6,
+    question: 'Increasing maintenance costs over time suggest:',
+    options: [
+      'The equipment is performing better',
+      'The equipment may need replacement soon',
+      'Maintenance is reducing costs',
+      'The equipment is new',
+    ],
+    correctAnswer: 'The equipment may need replacement soon',
+    explanation:
+      'As equipment ages, maintenance costs typically increase, indicating that it may be more economical to replace the equipment rather than continue maintaining it.',
+  },
+  // ===== Unit 7: Game Theory =====
+  {
+    id: 216,
+    subject: 'operationalResearch',
+    unit: 7,
+    question: 'A two-person zero-sum game is one where:',
+    options: [
+      'Both players can win',
+      'The sum of gains of one player equals the sum of losses of the other',
+      'Both players lose equally',
+      'The game has no winner',
+    ],
+    correctAnswer: 'The sum of gains of one player equals the sum of losses of the other',
+    explanation:
+      'In a zero-sum game, the total payoff is constant (usually zero), so one player\'s gain is exactly the other player\'s loss.',
+  },
+  {
+    id: 217,
+    subject: 'operationalResearch',
+    unit: 7,
+    question: 'A saddle point in game theory exists when:',
+    options: ['Maximin = Minimax', 'Maximin > Minimax', 'Maximin < Minimax', 'Maximin × Minimax = 0'],
+    correctAnswer: 'Maximin = Minimax',
+    explanation:
+      'A saddle point occurs when the maximin value (row player\'s minimum guaranteed gain) equals the minimax value (column player\'s maximum possible loss).',
+  },
+  {
+    id: 218,
+    subject: 'operationalResearch',
+    unit: 7,
+    question: 'In game theory, a pure strategy refers to:',
+    options: [
+      'A strategy involving random choices',
+      'A strategy where a player selects a particular course of action with certainty',
+      'A strategy that changes with each play',
+      'A strategy that depends on the opponent\'s move',
+    ],
+    correctAnswer: 'A strategy where a player selects a particular course of action with certainty',
+    explanation:
+      'In pure strategy, a player always chooses the same action. It is used when a saddle point exists in the game.',
+  },
+  {
+    id: 219,
+    subject: 'operationalResearch',
+    unit: 7,
+    question: 'The principle of dominance in game theory is used to:',
+    options: [
+      'Solve mixed strategy games',
+      'Reduce the size of the payoff matrix',
+      'Find the saddle point',
+      'Determine the number of players',
+    ],
+    correctAnswer: 'Reduce the size of the payoff matrix',
+    explanation:
+      'The dominance principle eliminates rows or columns that are inferior, simplifying the payoff matrix without affecting the optimal solution.',
+  },
+  {
+    id: 220,
+    subject: 'operationalResearch',
+    unit: 7,
+    question: 'A fair game occurs when the value of the game is:',
+    options: ['1', '0', '-1', 'Cannot be determined'],
+    correctAnswer: '0',
+    explanation:
+      'A game is said to be fair when the value of the game is zero, meaning neither player has an inherent advantage.',
+  },
+  {
+    id: 221,
+    subject: 'operationalResearch',
+    unit: 7,
+    question: 'Mixed strategy is used when:',
+    options: [
+      'A saddle point exists',
+      'The game has no saddle point',
+      'The game is fair',
+      'There is only one player',
+    ],
+    correctAnswer: 'The game has no saddle point',
+    explanation:
+      'When no saddle point exists, players use mixed strategies (assigning probabilities to different actions) to obtain the optimal solution.',
+  },
+  {
+    id: 222,
+    subject: 'operationalResearch',
+    unit: 7,
+    question: 'The maximin criterion is used by:',
+    options: ['An optimistic player', 'A pessimistic (conservative) player', 'A risk-neutral player', 'All players'],
+    correctAnswer: 'A pessimistic (conservative) player',
+    explanation:
+      'The maximin criterion assumes the worst-case scenario and maximizes the minimum possible gain. It reflects a pessimistic/conservative approach.',
+  },
+  {
+    id: 223,
+    subject: 'operationalResearch',
+    unit: 7,
+    question: 'In a 3×4 game, player A has how many strategies?',
+    options: ['3', '4', '7', '12'],
+    correctAnswer: '3',
+    explanation:
+      'In an m×n game, the row player (A) has m strategies and the column player (B) has n strategies. A 3×4 game means A has 3 strategies.',
+  },
+  {
+    id: 224,
+    subject: 'operationalResearch',
+    unit: 7,
+    question: 'A payoff matrix in a zero-sum game represents:',
+    options: [
+      'The gains of player A only',
+      'The gains of player B only',
+      'The gains of both players',
+      'The losses of both players',
+    ],
+    correctAnswer: 'The gains of player A only',
+    explanation:
+      'In a zero-sum game, the payoff matrix typically shows only the payoffs for player A (row player), since player B\'s payoff is the negative.',
+  },
+  {
+    id: 225,
+    subject: 'operationalResearch',
+    unit: 7,
+    question: 'A game with a saddle point is also called:',
+    options: ['Strictly determined game', 'Mixed strategy game', 'Fair game', 'Indeterminate game'],
+    correctAnswer: 'Strictly determined game',
+    explanation:
+      'A game with a saddle point is strictly determined because the optimal pure strategies for both players are clearly defined.',
+  },
+  {
+    id: 226,
+    subject: 'operationalResearch',
+    unit: 7,
+    question: 'In the graphical method for 2×n or m×2 games, the value of the game is found at:',
+    options: [
+      'The intersection of lines',
+      'The origin of the graph',
+      'The highest point on the graph',
+      'The lowest point on the graph',
+    ],
+    correctAnswer: 'The intersection of lines',
+    explanation:
+      'In the graphical method, the value of the game is determined at the intersection point of the payoff lines for the players.',
+  },
+  {
+    id: 227,
+    subject: 'operationalResearch',
+    unit: 7,
+    question: 'The minimax criterion is used by:',
+    options: [
+      'The row player (A)',
+      'The column player (B)',
+      'Both players',
+      'Neither player',
+    ],
+    correctAnswer: 'The column player (B)',
+    explanation:
+      'Player A uses maximin (maximize minimum gain), while Player B uses minimax (minimize maximum loss).',
+  },
+  {
+    id: 228,
+    subject: 'operationalResearch',
+    unit: 7,
+    question: 'In a 2×2 zero-sum game, the optimal mixed strategy probabilities can be found using:',
+    options: ['Algebraic method', 'Only trial and error', 'Only graphical method', 'Arithmetic mean'],
+    correctAnswer: 'Algebraic method',
+    explanation:
+      'For 2×2 games without a saddle point, the algebraic method (using formulas) can directly compute optimal mixed strategy probabilities.',
+  },
+  {
+    id: 229,
+    subject: 'operationalResearch',
+    unit: 7,
+    question: 'If a payoff matrix row is dominated by another row, the dominated row:',
+    options: [
+      'Should be retained',
+      'Should be eliminated',
+      'Becomes the optimal strategy',
+      'Determines the saddle point',
+    ],
+    correctAnswer: 'Should be eliminated',
+    explanation:
+      'A dominated row can be eliminated from consideration because the player would never choose a strategy that is always worse than another.',
+  },
+  {
+    id: 230,
+    subject: 'operationalResearch',
+    unit: 7,
+    question: 'Game theory assumes that all players are:',
+    options: ['Emotional', 'Rational', 'Irrational', 'Cooperative'],
+    correctAnswer: 'Rational',
+    explanation:
+      'Game theory assumes rational behavior — each player tries to maximize their own payoff and assumes the opponent does the same.',
+  },
+  {
+    id: 231,
+    subject: 'operationalResearch',
+    unit: 7,
+    question: 'An n-person game involves:',
+    options: ['1 player', '2 players', 'More than 2 players', 'Exactly n players'],
+    correctAnswer: 'Exactly n players',
+    explanation:
+      'An n-person game is a game with exactly n players, where n can be any positive integer (n ≥ 2 typically).',
+  },
+  {
+    id: 232,
+    subject: 'operationalResearch',
+    unit: 7,
+    question: 'When the sum of payoffs is not constant, the game is called:',
+    options: [
+      'Zero-sum game',
+      'Non-zero-sum game',
+      'Constant-sum game',
+      'Fair game',
+    ],
+    correctAnswer: 'Non-zero-sum game',
+    explanation:
+      'In a non-zero-sum game, the total payoff is not constant, meaning players can both gain or both lose simultaneously.',
+  },
+  {
+    id: 233,
+    subject: 'operationalResearch',
+    unit: 7,
+    question: 'In a payoff matrix, if all entries of a column are greater than entries of another column, then:',
+    options: [
+      'The first column is dominant',
+      'The second column dominates the first',
+      'Both columns are retained',
+      'The game is unfair',
+    ],
+    correctAnswer: 'The second column dominates the first',
+    explanation:
+      'For column player (minimizing), if column 2 has smaller entries than column 1, column 2 dominates column 1. Actually, a column dominates if its entries are less than or equal to another\'s.',
+  },
 ]
 
 
