@@ -2,26 +2,32 @@ import { useState } from 'react'
 import { Button } from './ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card'
 import { Progress } from './ui/progress'
-import { CheckCircle2, XCircle, ChevronRight, Lightbulb, Trophy } from 'lucide-react'
+import { CheckCircle2, XCircle, ChevronRight, Lightbulb, Trophy, ArrowLeft } from 'lucide-react'
 import type { Question, Subject } from '../types'
+import { units } from '../data/quizData'
 
 interface QuizInterfaceProps {
   questions: Question[]
   subject: Subject
+  unit?: number
   onComplete: (answers: Record<number, string>, score: number) => void
+  onBack?: () => void
   isRevise?: boolean
 }
 
 export default function QuizInterface({
   questions,
   subject,
+  unit,
   onComplete,
+  onBack,
   isRevise = false,
 }: QuizInterfaceProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [selectedOption, setSelectedOption] = useState<string | null>(null)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [showExplanation, setShowExplanation] = useState(false)
+  const [showHint, setShowHint] = useState(false)
   const [answers, setAnswers] = useState<Record<number, string>>({})
   const [score, setScore] = useState(0)
 
@@ -56,6 +62,7 @@ export default function QuizInterface({
     setSelectedOption(null)
     setIsSubmitted(false)
     setShowExplanation(false)
+    setShowHint(false)
   }
 
   function getOptionStyle(option: string): string {
@@ -91,8 +98,17 @@ export default function QuizInterface({
     <div className="mx-auto w-full max-w-2xl px-4 py-6 sm:px-6 sm:py-8">
       <div className="mb-6">
         <div className="mb-2 flex items-center justify-between text-sm text-muted-foreground">
-          <span>
-            {isRevise ? 'Revise Mistakes' : subject.label}
+          <span className="flex items-center gap-2">
+            {onBack && !isRevise && (
+              <button onClick={onBack} className="hover:text-foreground">
+                <ArrowLeft className="h-4 w-4" />
+              </button>
+            )}
+            {isRevise
+              ? 'Revise Mistakes'
+              : unit
+                ? `Unit ${unit}: ${units.find((u) => u.number === unit)?.title}`
+                : subject.label}
           </span>
           <span>
             {currentIndex + 1} of {totalQuestions}
@@ -175,15 +191,52 @@ export default function QuizInterface({
       )}
 
       {!isSubmitted && (
-        <div className="flex justify-end">
-          <Button
-            onClick={handleSubmit}
-            disabled={!selectedOption}
-            size="lg"
-            className="w-full sm:w-auto"
-          >
-            Submit Answer
-          </Button>
+        <div className="space-y-4">
+          {showHint && (
+            <Card className="border-muted-foreground/20 bg-muted/50 animate-in slide-in-from-bottom-2 fade-in duration-300">
+              <CardContent className="flex items-start gap-3 p-4">
+                <Lightbulb className="mt-0.5 h-5 w-5 shrink-0 text-amber-500" />
+                <div>
+                  <p className="mb-1 text-sm font-medium">Explanation</p>
+                  <p className="text-sm text-muted-foreground">
+                    {currentQuestion.explanation}
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          )}
+
+          <div className="flex flex-wrap justify-between gap-3">
+            {!showHint && (
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setShowHint(true)}
+              >
+                <Lightbulb className="h-4 w-4" />
+                Show Explanation
+              </Button>
+            )}
+            {showHint && (
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setShowHint(false)}
+              >
+                <Lightbulb className="h-4 w-4" />
+                Hide Explanation
+              </Button>
+            )}
+
+            <Button
+              onClick={handleSubmit}
+              disabled={!selectedOption}
+              size="lg"
+              className="w-full sm:w-auto"
+            >
+              Submit Answer
+            </Button>
+          </div>
         </div>
       )}
     </div>

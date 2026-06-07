@@ -4,21 +4,28 @@ import { Card, CardContent, CardHeader, CardTitle } from './ui/card'
 import { Progress } from './ui/progress'
 import { CheckCircle2, XCircle, Home, RotateCcw, BookOpen } from 'lucide-react'
 import type { Question, Subject } from '../types'
+import { units } from '../data/quizData'
 
 interface ResultScreenProps {
   questions: Question[]
   subject: Subject
+  unit?: number
   answers: Record<number, string>
   onRevise: (wrongQuestions: Question[]) => void
   onHome: () => void
+  onBack?: () => void
+  isRevise?: boolean
 }
 
 export default function ResultScreen({
   questions,
   subject,
+  unit,
   answers,
   onRevise,
   onHome,
+  onBack,
+  isRevise: isReviseMode = false,
 }: ResultScreenProps) {
   const score = useMemo(
     () => questions.filter((q) => answers[q.id] === q.correctAnswer).length,
@@ -63,7 +70,7 @@ export default function ResultScreen({
           Quiz Complete!
         </h1>
         <p className="text-lg text-muted-foreground">
-          {subject.label}
+          {unit ? `Unit ${unit}: ${units.find((u) => u.number === unit)?.title}` : subject.label}
         </p>
       </div>
 
@@ -159,6 +166,14 @@ export default function ResultScreen({
       )}
 
       <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
+        {onBack && !isReviseMode && (
+          <Button variant="outline" size="lg" onClick={onBack}>
+            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+            Back to Units
+          </Button>
+        )}
         <Button variant="outline" size="lg" onClick={onHome}>
           <Home className="h-4 w-4" />
           Return to Home

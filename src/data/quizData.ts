@@ -1,34 +1,6 @@
-import type { Question, Subject } from '../types'
+import type { Question, Subject, UnitInfo } from '../types'
 
 export const subjects: Subject[] = [
-  {
-    name: 'mathematics',
-    label: 'Mathematics',
-    icon: '📐',
-    description: 'Algebra, Geometry, Calculus & more',
-    color: 'from-blue-500 to-blue-600',
-  },
-  {
-    name: 'science',
-    label: 'Science',
-    icon: '🔬',
-    description: 'Physics, Chemistry, Biology',
-    color: 'from-emerald-500 to-emerald-600',
-  },
-  {
-    name: 'history',
-    label: 'History',
-    icon: '📜',
-    description: 'World events & civilizations',
-    color: 'from-amber-500 to-amber-600',
-  },
-  {
-    name: 'computers',
-    label: 'Computer Science',
-    icon: '💻',
-    description: 'Programming, Networks, AI',
-    color: 'from-purple-500 to-purple-600',
-  },
   {
     name: 'operationalResearch',
     label: 'Operational Research',
@@ -38,234 +10,22 @@ export const subjects: Subject[] = [
   },
 ]
 
+export const units: UnitInfo[] = [
+  { number: 1, title: 'Introduction to Operations Research', hours: 5 },
+  { number: 2, title: 'Linear Programming Problem', hours: 10 },
+  { number: 3, title: 'Transportation and Assignment Problem', hours: 8 },
+  { number: 4, title: 'Queuing Theory', hours: 6 },
+  { number: 5, title: 'Inventory Control', hours: 6 },
+  { number: 6, title: 'Replacement Theory', hours: 6 },
+  { number: 7, title: 'Game Theory', hours: 7 },
+]
+
 export const quizData: Question[] = [
-  // Mathematics
-  {
-    id: 1,
-    subject: 'mathematics',
-    question: 'What is the value of π (pi) rounded to 2 decimal places?',
-    options: ['3.12', '3.14', '3.16', '3.18'],
-    correctAnswer: '3.14',
-    explanation:
-      'Pi (π) is approximately equal to 3.14159. Rounded to 2 decimal places, it is 3.14.',
-  },
-  {
-    id: 2,
-    subject: 'mathematics',
-    question: 'What is the square root of 144?',
-    options: ['10', '11', '12', '13'],
-    correctAnswer: '12',
-    explanation:
-      '12 × 12 = 144, so the square root of 144 is 12.',
-  },
-  {
-    id: 3,
-    subject: 'mathematics',
-    question: 'If a triangle has angles 90°, 45°, and 45°, what type of triangle is it?',
-    options: [
-      'Equilateral',
-      'Isosceles right',
-      'Scalene',
-      'Obtuse',
-    ],
-    correctAnswer: 'Isosceles right',
-    explanation:
-      'A triangle with a 90° angle is a right triangle. With two equal angles (45° each), it is also isosceles, making it an isosceles right triangle.',
-  },
-  {
-    id: 4,
-    subject: 'mathematics',
-    question: 'What is the derivative of x²?',
-    options: ['x', '2x', '2', 'x²'],
-    correctAnswer: '2x',
-    explanation:
-      'Using the power rule, d/dx (xⁿ) = n·xⁿ⁻¹. So d/dx (x²) = 2x.',
-  },
-  {
-    id: 5,
-    subject: 'mathematics',
-    question: 'What is 15% of 200?',
-    options: ['20', '25', '30', '35'],
-    correctAnswer: '30',
-    explanation:
-      '15% of 200 = (15/100) × 200 = 0.15 × 200 = 30.',
-  },
-
-  // Science
-  {
-    id: 6,
-    subject: 'science',
-    question: 'What is the chemical symbol for water?',
-    options: ['H₂O', 'CO₂', 'NaCl', 'O₂'],
-    correctAnswer: 'H₂O',
-    explanation:
-      'Water consists of two hydrogen atoms and one oxygen atom, giving it the chemical formula H₂O.',
-  },
-  {
-    id: 7,
-    subject: 'science',
-    question: 'What planet is known as the Red Planet?',
-    options: ['Venus', 'Jupiter', 'Mars', 'Saturn'],
-    correctAnswer: 'Mars',
-    explanation:
-      'Mars appears reddish due to iron oxide (rust) on its surface, earning it the nickname "Red Planet."',
-  },
-  {
-    id: 8,
-    subject: 'science',
-    question: 'What is the speed of light in vacuum (approximately)?',
-    options: [
-      '3 × 10⁶ m/s',
-      '3 × 10⁷ m/s',
-      '3 × 10⁸ m/s',
-      '3 × 10⁹ m/s',
-    ],
-    correctAnswer: '3 × 10⁸ m/s',
-    explanation:
-      'Light travels at approximately 299,792,458 m/s in a vacuum, commonly rounded to 3 × 10⁸ m/s.',
-  },
-  {
-    id: 9,
-    subject: 'science',
-    question: 'What subatomic particle has a negative charge?',
-    options: ['Proton', 'Neutron', 'Electron', 'Positron'],
-    correctAnswer: 'Electron',
-    explanation:
-      'Electrons are negatively charged subatomic particles that orbit the nucleus of an atom.',
-  },
-  {
-    id: 10,
-    subject: 'science',
-    question: 'What gas do plants absorb from the atmosphere during photosynthesis?',
-    options: ['Oxygen', 'Nitrogen', 'Carbon dioxide', 'Hydrogen'],
-    correctAnswer: 'Carbon dioxide',
-    explanation:
-      'Plants absorb carbon dioxide (CO₂) from the atmosphere and convert it into glucose and oxygen during photosynthesis.',
-  },
-
-  // History
-  {
-    id: 11,
-    subject: 'history',
-    question: 'In what year did World War II end?',
-    options: ['1943', '1944', '1945', '1946'],
-    correctAnswer: '1945',
-    explanation:
-      'World War II ended in 1945 with the surrender of Germany in May and Japan in September.',
-  },
-  {
-    id: 12,
-    subject: 'history',
-    question: 'Who was the first President of the United States?',
-    options: [
-      'Thomas Jefferson',
-      'George Washington',
-      'Abraham Lincoln',
-      'John Adams',
-    ],
-    correctAnswer: 'George Washington',
-    explanation:
-      'George Washington served as the first President of the United States from 1789 to 1797.',
-  },
-  {
-    id: 13,
-    subject: 'history',
-    question: 'Which ancient civilization built the pyramids of Giza?',
-    options: ['Roman', 'Greek', 'Egyptian', 'Mesopotamian'],
-    correctAnswer: 'Egyptian',
-    explanation:
-      'The pyramids of Giza were built by the ancient Egyptians during the Old Kingdom period, around 2580–2560 BCE.',
-  },
-  {
-    id: 14,
-    subject: 'history',
-    question: 'What was the Renaissance a rebirth of?',
-    options: [
-      'Religion',
-      'Art and learning',
-      'Military power',
-      'Trade routes',
-    ],
-    correctAnswer: 'Art and learning',
-    explanation:
-      'The Renaissance (14th–17th century) was a cultural movement marking the rebirth of art, science, and classical learning after the Middle Ages.',
-  },
-  {
-    id: 15,
-    subject: 'history',
-    question: 'Who discovered America in 1492?',
-    options: [
-      'Vasco da Gama',
-      'Ferdinand Magellan',
-      'Christopher Columbus',
-      'Amerigo Vespucci',
-    ],
-    correctAnswer: 'Christopher Columbus',
-    explanation:
-      'Christopher Columbus, sailing under the Spanish flag, reached the Americas on October 12, 1492.',
-  },
-
-  // Computer Science
-  {
-    id: 16,
-    subject: 'computers',
-    question: 'What does CPU stand for?',
-    options: [
-      'Central Processing Unit',
-      'Computer Personal Unit',
-      'Central Program Utility',
-      'Core Processing Unit',
-    ],
-    correctAnswer: 'Central Processing Unit',
-    explanation:
-      'The CPU (Central Processing Unit) is the brain of the computer that executes instructions from programs.',
-  },
-  {
-    id: 17,
-    subject: 'computers',
-    question: 'Which data structure uses FIFO (First In, First Out)?',
-    options: ['Stack', 'Queue', 'Array', 'Tree'],
-    correctAnswer: 'Queue',
-    explanation:
-      'A queue follows the FIFO principle, where the first element added is the first one to be removed.',
-  },
-  {
-    id: 18,
-    subject: 'computers',
-    question: 'What is the time complexity of binary search?',
-    options: ['O(n)', 'O(log n)', 'O(n²)', 'O(1)'],
-    correctAnswer: 'O(log n)',
-    explanation:
-      'Binary search repeatedly divides the search space in half, giving it a logarithmic time complexity of O(log n).',
-  },
-  {
-    id: 19,
-    subject: 'computers',
-    question: 'What does HTML stand for?',
-    options: [
-      'HyperText Markup Language',
-      'High Tech Modern Language',
-      'HyperTransfer Markup Language',
-      'Home Tool Markup Language',
-    ],
-    correctAnswer: 'HyperText Markup Language',
-    explanation:
-      'HTML (HyperText Markup Language) is the standard language for creating web pages and web applications.',
-  },
-  {
-    id: 20,
-    subject: 'computers',
-    question: 'Which protocol is used to send emails?',
-    options: ['FTP', 'HTTP', 'SMTP', 'TCP'],
-    correctAnswer: 'SMTP',
-    explanation:
-      'SMTP (Simple Mail Transfer Protocol) is the standard protocol for sending emails across the Internet.',
-  },
-
   // Operational Research (from scribd MCQ bank)
   {
     id: 21,
     subject: 'operationalResearch',
+    unit: 1,
     question: 'Operations Research (OR), which is a very powerful tool for:',
     options: ['Research', 'Decision-Making', 'Operations', 'None of the above'],
     correctAnswer: 'Decision-Making',
@@ -274,6 +34,7 @@ export const quizData: Question[] = [
   {
     id: 22,
     subject: 'operationalResearch',
+    unit: 1,
     question: 'Who coined the term Operations Research?',
     options: ['J.F. McCloskey', 'F.N. Trefethen', 'P.F. Adams', 'Both A and B'],
     correctAnswer: 'Both A and B',
@@ -282,6 +43,7 @@ export const quizData: Question[] = [
   {
     id: 23,
     subject: 'operationalResearch',
+    unit: 1,
     question: 'The term Operations Research was coined in the year:',
     options: ['1950', '1940', '1978', '1960'],
     correctAnswer: '1940',
@@ -290,6 +52,7 @@ export const quizData: Question[] = [
   {
     id: 24,
     subject: 'operationalResearch',
+    unit: 1,
     question: 'This innovative science of Operations Research was discovered during:',
     options: ['Civil War', 'World War I', 'World War II', 'Industrial Revolution'],
     correctAnswer: 'World War II',
@@ -298,6 +61,7 @@ export const quizData: Question[] = [
   {
     id: 25,
     subject: 'operationalResearch',
+    unit: 1,
     question: 'Operations Research was known as an ability to win a war without really going into a:',
     options: ['Battle field', 'Fighting', 'War', 'Both A and B'],
     correctAnswer: 'Both A and B',
@@ -306,6 +70,7 @@ export const quizData: Question[] = [
   {
     id: 26,
     subject: 'operationalResearch',
+    unit: 1,
     question: 'Who defined OR as scientific method of providing executive departments with a quantitative basis for decisions?',
     options: ['Morse and Kimball (1946)', 'P.M.S. Blackett (1948)', 'E.L. Arnoff and M.J. Netzorg', 'None of the above'],
     correctAnswer: 'Morse and Kimball (1946)',
@@ -314,6 +79,7 @@ export const quizData: Question[] = [
   {
     id: 27,
     subject: 'operationalResearch',
+    unit: 1,
     question: 'Who defined OR as scientific approach to problem solving for executive management?',
     options: ['E.L. Arnoff', 'P.M.S. Blackett', 'H.M. Wagner', 'None of the above'],
     correctAnswer: 'H.M. Wagner',
@@ -322,6 +88,7 @@ export const quizData: Question[] = [
   {
     id: 28,
     subject: 'operationalResearch',
+    unit: 1,
     question: 'Who defined OR as an aid for the executive in making decisions by providing quantitative information?',
     options: ['C. Kitte', 'H.M. Wagner', 'E.L. Arnoff', 'None of the above'],
     correctAnswer: 'C. Kitte',
@@ -330,6 +97,7 @@ export const quizData: Question[] = [
   {
     id: 29,
     subject: 'operationalResearch',
+    unit: 1,
     question: 'Operations Research has the characteristic that it is done by a team of:',
     options: ['Scientists', 'Mathematicians', 'Academics', 'All of the above'],
     correctAnswer: 'Scientists',
@@ -338,6 +106,7 @@ export const quizData: Question[] = [
   {
     id: 30,
     subject: 'operationalResearch',
+    unit: 1,
     question: 'There is a great scope for ------------ working as a team to solve problems of defence by using OR:',
     options: ['Economists', 'Administrators', 'Statisticians and Technicians', 'All of the above'],
     correctAnswer: 'All of the above',
@@ -346,6 +115,7 @@ export const quizData: Question[] = [
   {
     id: 31,
     subject: 'operationalResearch',
+    unit: 1,
     question: 'OR emphasizes on the overall approach to the system. This characteristic is referred as:',
     options: ['System Orientation', 'System Approach', 'Interdisciplinary Team Approach', 'Mathematical Modeling'],
     correctAnswer: 'System Approach',
@@ -354,6 +124,7 @@ export const quizData: Question[] = [
   {
     id: 32,
     subject: 'operationalResearch',
+    unit: 1,
     question: 'Operations Research cannot give perfect ------------ to problems:',
     options: ['Answers', 'Solutions', 'Both A and B', 'Decisions'],
     correctAnswer: 'Both A and B',
@@ -362,6 +133,7 @@ export const quizData: Question[] = [
   {
     id: 33,
     subject: 'operationalResearch',
+    unit: 1,
     question: 'Operations Research simply helps in improving the ------------ of the solution but does not result in a perfect solution:',
     options: ['Quality', 'Clarity', 'Look', 'None of the above'],
     correctAnswer: 'Quality',
@@ -370,6 +142,7 @@ export const quizData: Question[] = [
   {
     id: 34,
     subject: 'operationalResearch',
+    unit: 1,
     question: 'Operations Research involves ------------ attack of complex problems to arrive at the optimum solution:',
     options: ['Scientific', 'Systematic', 'Both A and B', 'Statistical'],
     correctAnswer: 'Both A and B',
@@ -378,6 +151,7 @@ export const quizData: Question[] = [
   {
     id: 35,
     subject: 'operationalResearch',
+    unit: 1,
     question: 'OR uses models built by quantitative measurement and derives a solution using ------------ of the diversified solution techniques:',
     options: ['Two or more', 'One or more', 'Three or more', 'Only One'],
     correctAnswer: 'One or more',
@@ -386,6 +160,7 @@ export const quizData: Question[] = [
   {
     id: 36,
     subject: 'operationalResearch',
+    unit: 1,
     question: 'A solution may be extracted from a model either by:',
     options: ['Conducting experiments on it', 'Mathematical analysis', 'Both A and B', 'Diversified Techniques'],
     correctAnswer: 'Both A and B',
@@ -394,6 +169,7 @@ export const quizData: Question[] = [
   {
     id: 37,
     subject: 'operationalResearch',
+    unit: 1,
     question: 'Operations Research uses models to help management determine its ------------ scientifically:',
     options: ['Policies', 'Actions', 'Both A and B', 'None of the above'],
     correctAnswer: 'Both A and B',
@@ -402,6 +178,7 @@ export const quizData: Question[] = [
   {
     id: 38,
     subject: 'operationalResearch',
+    unit: 1,
     question: 'Operations Research is a:',
     options: ['Science', 'Art', 'Mathematics', 'Both A and B'],
     correctAnswer: 'Both A and B',
@@ -410,6 +187,7 @@ export const quizData: Question[] = [
   {
     id: 39,
     subject: 'operationalResearch',
+    unit: 1,
     question: 'What have been constructed for OR problems and methods for solving the models that are available in many cases?',
     options: ['Scientific Models', 'Algorithms', 'Mathematical Models', 'None of the above'],
     correctAnswer: 'Mathematical Models',
@@ -418,6 +196,7 @@ export const quizData: Question[] = [
   {
     id: 40,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'Which technique is used for optimizing an objective such as profit maximization or cost minimization under constraints?',
     options: ['Quailing Theory', 'Waiting Line', 'Both A and B', 'Linear Programming'],
     correctAnswer: 'Linear Programming',
@@ -426,6 +205,7 @@ export const quizData: Question[] = [
   {
     id: 41,
     subject: 'operationalResearch',
+    unit: 5,
     question: 'What aims at optimizing inventory levels?',
     options: ['Inventory Control', 'Inventory Capacity', 'Inventory Planning', 'None of the above'],
     correctAnswer: 'Inventory Planning',
@@ -434,6 +214,7 @@ export const quizData: Question[] = [
   {
     id: 42,
     subject: 'operationalResearch',
+    unit: 5,
     question: 'What can be defined as a useful idle resource which has economic value?',
     options: ['Inventory Control', 'Inventory', 'Inventory Planning', 'None of the above'],
     correctAnswer: 'Inventory',
@@ -442,6 +223,7 @@ export const quizData: Question[] = [
   {
     id: 43,
     subject: 'operationalResearch',
+    unit: 1,
     question: 'Which theory concerns making sound decisions under conditions of certainty, risk and uncertainty?',
     options: ['Game Theory', 'Network Analysis', 'Decision Theory', 'None of the above'],
     correctAnswer: 'Decision Theory',
@@ -450,6 +232,7 @@ export const quizData: Question[] = [
   {
     id: 44,
     subject: 'operationalResearch',
+    unit: 1,
     question: 'Key concepts of which technique include network of events and activities, resource allocation, and critical paths?',
     options: ['Game Theory', 'Network Analysis', 'Decision Theory', 'None of the above'],
     correctAnswer: 'Network Analysis',
@@ -458,6 +241,7 @@ export const quizData: Question[] = [
   {
     id: 45,
     subject: 'operationalResearch',
+    unit: 1,
     question: 'Which technique is used to imitate an operation prior to actual performance?',
     options: ['Simulation', 'Integrated Production Models', 'Inventory Control', 'Game Theory'],
     correctAnswer: 'Simulation',
@@ -466,6 +250,7 @@ export const quizData: Question[] = [
   {
     id: 46,
     subject: 'operationalResearch',
+    unit: 6,
     question: 'What is concerned with prediction of replacement costs and determination of most economic replacement policy?',
     options: ['Search Theory', 'Theory of replacement', 'Probabilistic Programming', 'None of the above'],
     correctAnswer: 'Theory of replacement',
@@ -474,6 +259,7 @@ export const quizData: Question[] = [
   {
     id: 47,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'What refers to Linear Programming that includes evaluation of relative risks and uncertainties?',
     options: ['Probabilistic Programming', 'Stochastic Programming', 'Both A and B', 'Linear Programming'],
     correctAnswer: 'Both A and B',
@@ -482,6 +268,7 @@ export const quizData: Question[] = [
   {
     id: 48,
     subject: 'operationalResearch',
+    unit: 1,
     question: 'What enables us to determine earliest and latest times for events and activities, identifying the critical path?',
     options: ['Programme Evaluation', 'Review Technique (PERT)', 'Both A and B', 'Deployment of resources'],
     correctAnswer: 'Both A and B',
@@ -490,6 +277,7 @@ export const quizData: Question[] = [
   {
     id: 49,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'Linear Programming technique is used to allocate scarce resources in problems of:',
     options: ['Schedule', 'Product Mix', 'Both A and B', 'Servicing Cost'],
     correctAnswer: 'Both A and B',
@@ -498,6 +286,7 @@ export const quizData: Question[] = [
   {
     id: 50,
     subject: 'operationalResearch',
+    unit: 1,
     question: 'OR techniques help the directing authority in optimum allocation of limited resources such as:',
     options: ['Men and Machine', 'Money', 'Material and Time', 'All of the above'],
     correctAnswer: 'All of the above',
@@ -506,6 +295,7 @@ export const quizData: Question[] = [
   {
     id: 51,
     subject: 'operationalResearch',
+    unit: 1,
     question: 'Operations Research study generally involves how many phases?',
     options: ['Three', 'Four', 'Five', 'Two'],
     correctAnswer: 'Three',
@@ -514,6 +304,7 @@ export const quizData: Question[] = [
   {
     id: 52,
     subject: 'operationalResearch',
+    unit: 2,
     question: '------------ models involve the allocation of resources to activities to optimize some measure of effectiveness:',
     options: ['Sequencing', 'Allocation Models', 'Queuing Theory', 'Decision Theory'],
     correctAnswer: 'Allocation Models',
@@ -522,6 +313,7 @@ export const quizData: Question[] = [
   {
     id: 53,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'Allocation problems can be solved by:',
     options: ['Linear Programming Technique', 'Non-Linear Programming Technique', 'Both A and B', 'None of the above'],
     correctAnswer: 'Both A and B',
@@ -530,6 +322,7 @@ export const quizData: Question[] = [
   {
     id: 54,
     subject: 'operationalResearch',
+    unit: 1,
     question: 'In ------------ models, everything is defined and the results are certain:',
     options: ['Deterministic Models', 'Probabilistic Models', 'Both A and B', 'None of the above'],
     correctAnswer: 'Deterministic Models',
@@ -538,6 +331,7 @@ export const quizData: Question[] = [
   {
     id: 55,
     subject: 'operationalResearch',
+    unit: 1,
     question: 'In ------------ models there is risk and uncertainty:',
     options: ['Deterministic Models', 'Probabilistic Models', 'Both A and B', 'None of the above'],
     correctAnswer: 'Probabilistic Models',
@@ -546,6 +340,7 @@ export const quizData: Question[] = [
   {
     id: 56,
     subject: 'operationalResearch',
+    unit: 1,
     question: '------------ models are obtained by enlarging or reducing the size of the item:',
     options: ['Iconic Models', 'Analogue Models', 'Symbolic Models', 'None of the above'],
     correctAnswer: 'Iconic Models',
@@ -554,6 +349,7 @@ export const quizData: Question[] = [
   {
     id: 57,
     subject: 'operationalResearch',
+    unit: 1,
     question: 'Operations Research attempts to find the best and ------------ solution to a problem:',
     options: ['Optimum', 'Perfect', 'Degenerate', 'None of the above'],
     correctAnswer: 'Optimum',
@@ -562,6 +358,7 @@ export const quizData: Question[] = [
   {
     id: 58,
     subject: 'operationalResearch',
+    unit: 1,
     question: 'The word ------------ may be defined as some action that we apply to some problems or hypothesis:',
     options: ['Research', 'Operation', 'Both A and B', 'None of the above'],
     correctAnswer: 'Operation',
@@ -570,6 +367,7 @@ export const quizData: Question[] = [
   {
     id: 59,
     subject: 'operationalResearch',
+    unit: 1,
     question: 'The OR technique specially used to determine the optimum strategy is:',
     options: ['Decision Theory', 'Simulation', 'Game Theory', 'None of the above'],
     correctAnswer: 'Simulation',
@@ -578,6 +376,7 @@ export const quizData: Question[] = [
   {
     id: 60,
     subject: 'operationalResearch',
+    unit: 4,
     question: 'The OR technique which helps in minimizing total waiting and service costs is:',
     options: ['Queuing Theory', 'Decision Theory', 'Both A and B', 'None of the above'],
     correctAnswer: 'Queuing Theory',
@@ -586,6 +385,7 @@ export const quizData: Question[] = [
   {
     id: 61,
     subject: 'operationalResearch',
+    unit: 1,
     question: '------------ are the representation of reality:',
     options: ['Models', 'Phases', 'Both A and B', 'None of the above'],
     correctAnswer: 'Models',
@@ -594,6 +394,7 @@ export const quizData: Question[] = [
   {
     id: 62,
     subject: 'operationalResearch',
+    unit: 1,
     question: '------------ are called mathematical models:',
     options: ['Iconic Models', 'Analogue Models', 'Symbolic Models', 'None of the above'],
     correctAnswer: 'Symbolic Models',
@@ -602,6 +403,7 @@ export const quizData: Question[] = [
   {
     id: 63,
     subject: 'operationalResearch',
+    unit: 1,
     question: 'It is not easy to make any modification or improvement in:',
     options: ['Iconic Models', 'Analogue Models', 'Symbolic Models', 'None of the above'],
     correctAnswer: 'Symbolic Models',
@@ -610,6 +412,7 @@ export const quizData: Question[] = [
   {
     id: 64,
     subject: 'operationalResearch',
+    unit: 1,
     question: 'In ------------ models, one set of properties is used to represent another set of properties:',
     options: ['Iconic Models', 'Analogue Models', 'Symbolic Models', 'None of the above'],
     correctAnswer: 'Iconic Models',
@@ -618,6 +421,7 @@ export const quizData: Question[] = [
   {
     id: 65,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'Allocation Models are:',
     options: ['Iconic models', 'Analogue Models', 'Symbolic Models', 'None of the above'],
     correctAnswer: 'Symbolic Models',
@@ -626,6 +430,7 @@ export const quizData: Question[] = [
   {
     id: 66,
     subject: 'operationalResearch',
+    unit: 1,
     question: 'Probabilistic models are also known as:',
     options: ['Deterministic Models', 'Stochastic Models', 'Dynamic Models', 'Static Models'],
     correctAnswer: 'Stochastic Models',
@@ -634,6 +439,7 @@ export const quizData: Question[] = [
   {
     id: 67,
     subject: 'operationalResearch',
+    unit: 1,
     question: '------------ models assume that the values of the variables do not change with time:',
     options: ['Static Models', 'Dynamic Models', 'Both A and B', 'None of the above'],
     correctAnswer: 'Static Models',
@@ -642,6 +448,7 @@ export const quizData: Question[] = [
   {
     id: 68,
     subject: 'operationalResearch',
+    unit: 1,
     question: 'A ------------ model considers time as one of the important variables:',
     options: ['Static Models', 'Dynamic Models', 'Both A and B', 'None of the above'],
     correctAnswer: 'Dynamic Models',
@@ -650,6 +457,7 @@ export const quizData: Question[] = [
   {
     id: 69,
     subject: 'operationalResearch',
+    unit: 6,
     question: 'Replacement Model is a ------------ model:',
     options: ['Static Models', 'Dynamic Models', 'Both A and B', 'None of the above'],
     correctAnswer: 'Dynamic Models',
@@ -658,6 +466,7 @@ export const quizData: Question[] = [
   {
     id: 70,
     subject: 'operationalResearch',
+    unit: 2,
     question: '------------ may be defined as a method of determining an optimum programme of interdependent activities under available resources:',
     options: ['Goal Programming', 'Linear Programming', 'Decision Making', 'None of the above'],
     correctAnswer: 'Linear Programming',
@@ -666,6 +475,7 @@ export const quizData: Question[] = [
   {
     id: 71,
     subject: 'operationalResearch',
+    unit: 2,
     question: '------------ are expressed in the form of inequalities or equations:',
     options: ['Constraints', 'Objective Functions', 'Both A and B', 'None of the above'],
     correctAnswer: 'Constraints',
@@ -674,6 +484,7 @@ export const quizData: Question[] = [
   {
     id: 72,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'The objective functions and constraints are linear relationships between:',
     options: ['Variables', 'Constraints', 'Functions', 'All of the above'],
     correctAnswer: 'Variables',
@@ -682,6 +493,7 @@ export const quizData: Question[] = [
   {
     id: 73,
     subject: 'operationalResearch',
+    unit: 3,
     question: 'Assignment problem helps to find a maximum weight identical in nature in a weighted:',
     options: ['Tripartite graph', 'Bipartite graph', 'Partite graph', 'None of the above'],
     correctAnswer: 'Bipartite graph',
@@ -690,6 +502,7 @@ export const quizData: Question[] = [
   {
     id: 74,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'All the parameters in the linear programming model are assumed to be:',
     options: ['Variables', 'Constraints', 'Functions', 'None of the above'],
     correctAnswer: 'Constraints',
@@ -698,6 +511,7 @@ export const quizData: Question[] = [
   {
     id: 75,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'The solution need not be in ------------ numbers:',
     options: ['Prime Number', 'Whole Number', 'Complex Number', 'None of the above'],
     correctAnswer: 'Whole Number',
@@ -706,6 +520,7 @@ export const quizData: Question[] = [
   {
     id: 76,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'Graphic method can be applied to solve an LPP when there are only ------------ variables:',
     options: ['One', 'More than One', 'Two', 'Three'],
     correctAnswer: 'Two',
@@ -714,6 +529,7 @@ export const quizData: Question[] = [
   {
     id: 77,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'If the feasible region of an LPP is empty, the solution is:',
     options: ['Infeasible', 'Unbounded', 'Alternative', 'None of the above'],
     correctAnswer: 'Infeasible',
@@ -722,6 +538,7 @@ export const quizData: Question[] = [
   {
     id: 78,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'The variables whose coefficient vectors are unit vectors are called:',
     options: ['Unit Variables', 'Basic Variables', 'Non basic Variables', 'None of the above'],
     correctAnswer: 'Basic Variables',
@@ -730,6 +547,7 @@ export const quizData: Question[] = [
   {
     id: 79,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'Any column or row of a simplex table is called a:',
     options: ['Vector', 'Key column', 'Key Row', 'None of the above'],
     correctAnswer: 'Vector',
@@ -738,6 +556,7 @@ export const quizData: Question[] = [
   {
     id: 80,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'If there are m original variables and n introduced variables, then there will be ------------ columns in the simplex table:',
     options: ['m + n', 'm - n', '3 + m + n', 'm + n - 1'],
     correctAnswer: 'm + n',
@@ -746,6 +565,7 @@ export const quizData: Question[] = [
   {
     id: 81,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'A minimization problem can be converted into a maximization problem by changing the sign of coefficients in the:',
     options: ['Constraints', 'Objective Functions', 'Both A and B', 'None of the above'],
     correctAnswer: 'Objective Functions',
@@ -754,6 +574,7 @@ export const quizData: Question[] = [
   {
     id: 82,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'If in an LPP the solution of a variable can be made infinity large without violating constraints, the solution is:',
     options: ['Infeasible', 'Unbounded', 'Alternative', 'None of the above'],
     correctAnswer: 'Unbounded',
@@ -762,6 +583,7 @@ export const quizData: Question[] = [
   {
     id: 83,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'In maximization cases, ------------ are assigned to the artificial variables as their coefficients in the objective function:',
     options: ['+M', '-M', '0', 'None of the above'],
     correctAnswer: '+M',
@@ -770,6 +592,7 @@ export const quizData: Question[] = [
   {
     id: 84,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'In simplex method, we add ------------ variables in the case of "=":',
     options: ['Slack Variable', 'Surplus Variable', 'Artificial Variable', 'None of the above'],
     correctAnswer: 'Artificial Variable',
@@ -778,6 +601,7 @@ export const quizData: Question[] = [
   {
     id: 85,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'In simplex method, if there is a tie between a decision variable and a slack variable, ------------ should be selected:',
     options: ['Slack variable', 'Surplus variable', 'Decision variable', 'None of the above'],
     correctAnswer: 'Decision variable',
@@ -786,6 +610,7 @@ export const quizData: Question[] = [
   {
     id: 86,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'A BFS of an LPP is said to be ------------ if at least one of the basic variables is zero:',
     options: ['Degenerate', 'Non-degenerate', 'Infeasible', 'Unbounded'],
     correctAnswer: 'Degenerate',
@@ -794,6 +619,7 @@ export const quizData: Question[] = [
   {
     id: 87,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'In LPP, degeneracy occurs in ------------ stages:',
     options: ['One', 'Two', 'Three', 'Four'],
     correctAnswer: 'Two',
@@ -802,6 +628,7 @@ export const quizData: Question[] = [
   {
     id: 88,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'Every LPP is associated with another LPP called:',
     options: ['Primal', 'Dual', 'Non-linear programming', 'None of the above'],
     correctAnswer: 'Dual',
@@ -810,6 +637,7 @@ export const quizData: Question[] = [
   {
     id: 89,
     subject: 'operationalResearch',
+    unit: 3,
     question: 'As for maximization in assignment problem, the objective is to maximize the:',
     options: ['Profit', 'optimization', 'cost', 'None of the above'],
     correctAnswer: 'Profit',
@@ -818,6 +646,7 @@ export const quizData: Question[] = [
   {
     id: 90,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'If there are more than one optimum solution for the decision variable, the solution is:',
     options: ['Infeasible', 'Unbounded', 'Alternative', 'None of the above'],
     correctAnswer: 'Alternative',
@@ -826,6 +655,7 @@ export const quizData: Question[] = [
   {
     id: 91,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'Dual of the dual is:',
     options: ['Primal', 'Dual', 'Alternative', 'None of the above'],
     correctAnswer: 'Primal',
@@ -834,6 +664,7 @@ export const quizData: Question[] = [
   {
     id: 92,
     subject: 'operationalResearch',
+    unit: 1,
     question: 'Operations Research approach is:',
     options: ['Multi-disciplinary', 'Scientific', 'Initiative', 'All of the above'],
     correctAnswer: 'Initiative',
@@ -842,6 +673,7 @@ export const quizData: Question[] = [
   {
     id: 93,
     subject: 'operationalResearch',
+    unit: 1,
     question: 'For analyzing the problem, decision-makers should normally study:',
     options: ['Its qualitative aspects', 'Its quantitative aspects', 'Both A and B', 'Neither A and B'],
     correctAnswer: 'Its qualitative aspects',
@@ -850,6 +682,7 @@ export const quizData: Question[] = [
   {
     id: 94,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'Decision variables are:',
     options: ['Controllable', 'Uncontrollable', 'Parameters', 'None of the above'],
     correctAnswer: 'None of the above',
@@ -858,6 +691,7 @@ export const quizData: Question[] = [
   {
     id: 95,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'The issue of decision models:',
     options: ['Is possible when the variable value is known with certainty', 'Reduces the scope of judgment and intuition', 'Requires knowledge of computer software', 'None of the above'],
     correctAnswer: 'None of the above',
@@ -866,6 +700,7 @@ export const quizData: Question[] = [
   {
     id: 96,
     subject: 'operationalResearch',
+    unit: 3,
     question: '------------ is one of the fundamental combinatorial optimization problems:',
     options: ['Assignment problem', 'Transportation problem', 'Optimization Problem', 'None of the above'],
     correctAnswer: 'Assignment problem',
@@ -874,6 +709,7 @@ export const quizData: Question[] = [
   {
     id: 97,
     subject: 'operationalResearch',
+    unit: 1,
     question: 'An optimization model:',
     options: ['Mathematically provides the best decision', 'Provides decision within its limited context', 'Helps in evaluating various alternatives', 'All of the above'],
     correctAnswer: 'All of the above',
@@ -882,6 +718,7 @@ export const quizData: Question[] = [
   {
     id: 98,
     subject: 'operationalResearch',
+    unit: 1,
     question: 'The quantitative approach to decision analysis is a:',
     options: ['Logical approach', 'Rational approach', 'Scientific approach', 'All of the above'],
     correctAnswer: 'Scientific approach',
@@ -890,6 +727,7 @@ export const quizData: Question[] = [
   {
     id: 99,
     subject: 'operationalResearch',
+    unit: 1,
     question: 'Operations Research approach is typically based on the use of:',
     options: ['Physical model', 'Mathematical model', 'Iconic model', 'Descriptive model'],
     correctAnswer: 'Mathematical model',
@@ -898,6 +736,7 @@ export const quizData: Question[] = [
   {
     id: 100,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'In a manufacturing process, who decides quantities and processes to minimize cost and maximize profit?',
     options: ['Supervisor', 'Manufacturer', 'Producer', 'Production manager'],
     correctAnswer: 'Production manager',
@@ -906,6 +745,7 @@ export const quizData: Question[] = [
   {
     id: 101,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'Linear programming has been successfully applied in:',
     options: ['Agricultural', 'Industrial applications', 'Both A and B', 'Manufacturing'],
     correctAnswer: 'Both A and B',
@@ -914,6 +754,7 @@ export const quizData: Question[] = [
   {
     id: 102,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'The term linearity implies ------------ among the relevant variables:',
     options: ['Straight line', 'Proportional relationships', 'Linear lines', 'Both A and B'],
     correctAnswer: 'Both A and B',
@@ -922,6 +763,7 @@ export const quizData: Question[] = [
   {
     id: 103,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'Process refers to the combination of ------------ inputs to produce a particular output:',
     options: ['one or more', 'two or more', 'one', 'None of the above'],
     correctAnswer: 'one or more',
@@ -930,6 +772,7 @@ export const quizData: Question[] = [
   {
     id: 104,
     subject: 'operationalResearch',
+    unit: 1,
     question: 'What has always been very important in business and industry regarding production problems?',
     options: ['Linear Programming', 'Production', 'Decision-making', 'None of the above'],
     correctAnswer: 'Decision-making',
@@ -938,6 +781,7 @@ export const quizData: Question[] = [
   {
     id: 105,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'What are the main questions before a production manager?',
     options: ['Which commodities to produce', 'In what quantities', 'By which process', 'All of the above'],
     correctAnswer: 'All of the above',
@@ -946,6 +790,7 @@ export const quizData: Question[] = [
   {
     id: 106,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'Who pointed out that businessmen study production functions and substitute inputs until costs are minimized?',
     options: ['Alan Marshall', 'Alfred Marsh', 'Alfred Marshall', 'None of the above'],
     correctAnswer: 'Alfred Marshall',
@@ -954,6 +799,7 @@ export const quizData: Question[] = [
   {
     id: 107,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'Who invented a method of formal calculations often termed as Linear Programming?',
     options: ['A.V. Kantorovich', 'L.V. Kantorovich', 'T.S. Kantorovich', 'Alfred Marshall'],
     correctAnswer: 'L.V. Kantorovich',
@@ -962,6 +808,7 @@ export const quizData: Question[] = [
   {
     id: 108,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'Who developed Linear Programming for scheduling procurement activities of the United States Air Force?',
     options: ['George B. Dantzig', 'James B. Dantzig', 'George B. Dante', 'George V. Dantzig'],
     correctAnswer: 'George B. Dantzig',
@@ -970,6 +817,7 @@ export const quizData: Question[] = [
   {
     id: 109,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'The method of formal calculations called Linear Programming was developed in which year?',
     options: ['1947', '1988', '1957', '1944'],
     correctAnswer: '1947',
@@ -978,6 +826,7 @@ export const quizData: Question[] = [
   {
     id: 110,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'What is considered as one of the most versatile management tools?',
     options: ['Electronic Computers', 'Linear Programming', 'Computer Programming', 'None of the above'],
     correctAnswer: 'Linear Programming',
@@ -986,6 +835,7 @@ export const quizData: Question[] = [
   {
     id: 111,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'LP is a major innovation since ------------ in the field of business decision-making:',
     options: ['Industrial Revolution', 'World War I', 'World War II', 'French Revolution'],
     correctAnswer: 'World War II',
@@ -994,6 +844,7 @@ export const quizData: Question[] = [
   {
     id: 112,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'The word "Linear" means that the relationships are represented by:',
     options: ['Diagonal lines', 'Curved lines', 'Straight lines', 'Slanting lines'],
     correctAnswer: 'Straight lines',
@@ -1002,6 +853,7 @@ export const quizData: Question[] = [
   {
     id: 113,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'The word "programming" means taking decisions:',
     options: ['Systematically', 'Rapidly', 'Slowly', 'Instantly'],
     correctAnswer: 'Systematically',
@@ -1010,6 +862,7 @@ export const quizData: Question[] = [
   {
     id: 114,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'Who originally called it "Programming of interdependent activities in a linear structure" but shortened it to "Linear Programming"?',
     options: ['Dantzig', 'Kantorovich', 'Marshall', 'None of the above'],
     correctAnswer: 'Dantzig',
@@ -1018,6 +871,7 @@ export const quizData: Question[] = [
   {
     id: 115,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'LP can be applied in farm management to allocate resources such as ------------ to maximize net revenue:',
     options: ['Acreage', 'Labour', 'Water supply or working capital', 'All of the above'],
     correctAnswer: 'All of the above',
@@ -1026,6 +880,7 @@ export const quizData: Question[] = [
   {
     id: 116,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'LP model is based on the assumptions of:',
     options: ['Proportionality', 'Additivity', 'Certainty', 'All of the above'],
     correctAnswer: 'All of the above',
@@ -1034,6 +889,7 @@ export const quizData: Question[] = [
   {
     id: 117,
     subject: 'operationalResearch',
+    unit: 2,
     question: '------------ assumption means prior knowledge of all coefficients in the objective function, constraints, and resource values:',
     options: ['Proportionality', 'Certainty', 'Finite choices', 'Continuity'],
     correctAnswer: 'Certainty',
@@ -1042,6 +898,7 @@ export const quizData: Question[] = [
   {
     id: 118,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'Simple linear programming problems with ------------ variables can be solved by the graphical method:',
     options: ['One decision', 'Four decisions', 'Three decisions', 'Two decisions'],
     correctAnswer: 'Two decisions',
@@ -1050,6 +907,7 @@ export const quizData: Question[] = [
   {
     id: 119,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'Any solution to an LPP which satisfies the non-negativity restrictions is called its:',
     options: ['Unbounded solution', 'Optimal solution', 'Feasible solution', 'Both A and B'],
     correctAnswer: 'Feasible solution',
@@ -1058,6 +916,7 @@ export const quizData: Question[] = [
   {
     id: 120,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'Any feasible solution which optimizes the objective function of the LPP is called its:',
     options: ['Optimal solution', 'Non-basic variables', 'Solution', 'Basic feasible solution'],
     correctAnswer: 'Optimal solution',
@@ -1066,6 +925,7 @@ export const quizData: Question[] = [
   {
     id: 121,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'A non-degenerate basic feasible solution has exactly m positive Xi, i.e., none of the basic variables is:',
     options: ['Infinity', 'One', 'Zero', 'X'],
     correctAnswer: 'Zero',
@@ -1074,6 +934,7 @@ export const quizData: Question[] = [
   {
     id: 122,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'What are the non-negative variables added to the LHS of constraints to convert "<" into equations?',
     options: ['Slack variables', 'Simplex algorithm', 'Key element', 'None of the above'],
     correctAnswer: 'Slack variables',
@@ -1082,6 +943,7 @@ export const quizData: Question[] = [
   {
     id: 123,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'Which method is an iterative procedure for solving LPP in a finite number of steps?',
     options: ['Simplex algorithm', 'Slack variable', 'M method', 'Simplex method'],
     correctAnswer: 'Simplex method',
@@ -1090,6 +952,7 @@ export const quizData: Question[] = [
   {
     id: 124,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'In simplex algorithm, which method handles an infeasible starting basic solution?',
     options: ['Slack variable', 'Simplex method', 'M-method', 'None of the above'],
     correctAnswer: 'M-method',
@@ -1098,6 +961,7 @@ export const quizData: Question[] = [
   {
     id: 125,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'How many methods are there to solve LPP?',
     options: ['Three', 'Two', 'Four', 'None of the above'],
     correctAnswer: 'Two',
@@ -1106,6 +970,7 @@ export const quizData: Question[] = [
   {
     id: 126,
     subject: 'operationalResearch',
+    unit: 2,
     question: '------------ is another method to solve an LPP involving artificial variables:',
     options: ['Big M method', 'Method of penalties', 'Two-phase simplex method', 'None of the above'],
     correctAnswer: 'Two-phase simplex method',
@@ -1114,6 +979,7 @@ export const quizData: Question[] = [
   {
     id: 127,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'Which variables are fictitious and cannot have any physical meaning?',
     options: ['Optimal variable', 'Decision variable', 'Artificial variable', 'None of the above'],
     correctAnswer: 'Artificial variable',
@@ -1122,6 +988,7 @@ export const quizData: Question[] = [
   {
     id: 128,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'An objective function which states the determinants of the quantity to be maximized or minimized is called:',
     options: ['Feasible function', 'Optimal function', 'Criterion function', 'None of the above'],
     correctAnswer: 'Criterion function',
@@ -1130,6 +997,7 @@ export const quizData: Question[] = [
   {
     id: 129,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'An assumption that implies finite choices are available and decision variables do not assume negative values is:',
     options: ['Certainty', 'Continuity', 'Finite choices', 'None of the above'],
     correctAnswer: 'Finite choices',
@@ -1138,6 +1006,7 @@ export const quizData: Question[] = [
   {
     id: 130,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'A set of values X1, X2, ... Xn which satisfies the constraints of the LPP is called:',
     options: ['Solution', 'Variable', 'Linearity', 'None of the above'],
     correctAnswer: 'Solution',
@@ -1146,6 +1015,7 @@ export const quizData: Question[] = [
   {
     id: 131,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'A basic solution where all basic variables are non-negative is called:',
     options: ['Basic feasible solution', 'Feasible solution', 'Optimal solution', 'None of the above'],
     correctAnswer: 'Basic feasible solution',
@@ -1154,6 +1024,7 @@ export const quizData: Question[] = [
   {
     id: 132,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'All constraints expressed as equations with non-negative RHS and variables is called:',
     options: ['Canonical variable', 'Canonical form', 'Canonical solution', 'Both A and B'],
     correctAnswer: 'Canonical form',
@@ -1162,6 +1033,7 @@ export const quizData: Question[] = [
   {
     id: 133,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'An objective function is maximized when it is a ------------ function:',
     options: ['Passive', 'Profit', 'Cost', 'None of the above'],
     correctAnswer: 'Profit',
@@ -1170,6 +1042,7 @@ export const quizData: Question[] = [
   {
     id: 134,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'LPP is exactly used in solving what kind of resource allocation problems?',
     options: ['Production planning and scheduling', 'Transportation', 'Sales and advertising', 'All of the above'],
     correctAnswer: 'All of the above',
@@ -1178,6 +1051,7 @@ export const quizData: Question[] = [
   {
     id: 135,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'Currently, LPP is used in solving a wide range of practical:',
     options: ['Business problems', 'Agricultural problems', 'Manufacturing problems', 'None of the above'],
     correctAnswer: 'Business problems',
@@ -1186,6 +1060,7 @@ export const quizData: Question[] = [
   {
     id: 136,
     subject: 'operationalResearch',
+    unit: 2,
     question: '------------ refers to the combination of one or more inputs to produce a particular output:',
     options: ['Solution', 'variable', 'Process', 'None of the above'],
     correctAnswer: 'Process',
@@ -1194,6 +1069,7 @@ export const quizData: Question[] = [
   {
     id: 137,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'An optimum solution is considered the ------------ among feasible solutions:',
     options: ['Worst', 'Best', 'Ineffective', 'None of the above'],
     correctAnswer: 'Best',
@@ -1202,6 +1078,7 @@ export const quizData: Question[] = [
   {
     id: 138,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'Please state which statement is true: (i) All LPPs may not have unique solutions (ii) Artificial variable technique is not a device to get starting BFS:',
     options: ['Both (i) and (ii)', '(ii) only', '(i) only', 'Both are incorrect'],
     correctAnswer: '(i) only',
@@ -1210,6 +1087,7 @@ export const quizData: Question[] = [
   {
     id: 139,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'Please state which statement is incorrect: (i) LP was first formulated by L.V. Kantorovich (ii) LP is used in solving optimization problems:',
     options: ['(ii) only', '(i) only', 'Both (i) and (ii)', 'Both are correct'],
     correctAnswer: '(i) only',
@@ -1218,6 +1096,7 @@ export const quizData: Question[] = [
   {
     id: 140,
     subject: 'operationalResearch',
+    unit: 3,
     question: '------------ which is a subclass of a linear programming problem (LPP):',
     options: ['Programming problem', 'Transportation problem', 'Computer problem', 'Both are incorrect'],
     correctAnswer: 'Transportation problem',
@@ -1226,6 +1105,7 @@ export const quizData: Question[] = [
   {
     id: 141,
     subject: 'operationalResearch',
+    unit: 3,
     question: 'The solution of any transportation problem is obtained in how many stages?',
     options: ['Five', 'Four', 'Three', 'Two'],
     correctAnswer: 'Two',
@@ -1234,6 +1114,7 @@ export const quizData: Question[] = [
   {
     id: 142,
     subject: 'operationalResearch',
+    unit: 3,
     question: 'An optimal solution is the ------------ stage of a solution obtained by improving the initial solution:',
     options: ['Third', 'First', 'Second', 'Final'],
     correctAnswer: 'Second',
@@ -1242,6 +1123,7 @@ export const quizData: Question[] = [
   {
     id: 143,
     subject: 'operationalResearch',
+    unit: 3,
     question: 'MODI method is used to obtain:',
     options: ['Optimal solutions', 'Optimality test', 'Both A and B', 'Optimization'],
     correctAnswer: 'Both A and B',
@@ -1250,6 +1132,7 @@ export const quizData: Question[] = [
   {
     id: 144,
     subject: 'operationalResearch',
+    unit: 3,
     question: 'For solving an assignment problem, which method is used?',
     options: ['Hungarian', 'American', 'German', 'Both are incorrect'],
     correctAnswer: 'Hungarian',
@@ -1258,6 +1141,7 @@ export const quizData: Question[] = [
   {
     id: 145,
     subject: 'operationalResearch',
+    unit: 3,
     question: 'To make an unbalanced assignment problem balanced, what are added with all entries as zeroes?',
     options: ['Dummy rows', 'Dummy columns', 'Both A and B', 'Dummy entries'],
     correctAnswer: 'Both A and B',
@@ -1266,6 +1150,7 @@ export const quizData: Question[] = [
   {
     id: 146,
     subject: 'operationalResearch',
+    unit: 3,
     question: 'Any set of non-negative allocations (Xij > 0) which satisfies row and column sums is called a:',
     options: ['Linear programming', 'Basic feasible solution', 'Feasible solution', 'None of the above'],
     correctAnswer: 'Feasible solution',
@@ -1274,6 +1159,7 @@ export const quizData: Question[] = [
   {
     id: 147,
     subject: 'operationalResearch',
+    unit: 3,
     question: 'A feasible solution is a basic feasible solution if non-negative allocations equal:',
     options: ['m - n + 1', 'm - n - 1', 'm + n - 1', 'None of the above'],
     correctAnswer: 'm + n - 1',
@@ -1282,6 +1168,7 @@ export const quizData: Question[] = [
   {
     id: 148,
     subject: 'operationalResearch',
+    unit: 3,
     question: 'Any feasible solution to a transportation problem containing m origins and n destinations is said to be:',
     options: ['Independent', 'Degenerate', 'Non-degenerate', 'Both A and B'],
     correctAnswer: 'Non-degenerate',
@@ -1290,6 +1177,7 @@ export const quizData: Question[] = [
   {
     id: 149,
     subject: 'operationalResearch',
+    unit: 3,
     question: 'A path formed by horizontal and vertical lines with all corner cells occupied is called a:',
     options: ['Occupied path', 'Open path', 'Closed path', 'None of the above'],
     correctAnswer: 'Closed path',
@@ -1298,6 +1186,7 @@ export const quizData: Question[] = [
   {
     id: 150,
     subject: 'operationalResearch',
+    unit: 3,
     question: 'Transportation algorithm can be used for minimizing the transportation cost of ------------ from O origins and D destinations:',
     options: ['Goods', 'Products', 'Items', 'None of the above'],
     correctAnswer: 'Goods',
@@ -1306,6 +1195,7 @@ export const quizData: Question[] = [
   {
     id: 151,
     subject: 'operationalResearch',
+    unit: 3,
     question: 'If demand is lesser than supply, then a dummy demand node is added to make it a:',
     options: ['Simple problem', 'Balanced problem', 'Transportation problem', 'None of the above'],
     correctAnswer: 'Balanced problem',
@@ -1314,6 +1204,7 @@ export const quizData: Question[] = [
   {
     id: 152,
     subject: 'operationalResearch',
+    unit: 3,
     question: 'Basic cells indicate positive values and non-basic cells have ------------ value for flow:',
     options: ['Negative', 'Positive', 'One', 'zero'],
     correctAnswer: 'zero',
@@ -1322,6 +1213,7 @@ export const quizData: Question[] = [
   {
     id: 153,
     subject: 'operationalResearch',
+    unit: 3,
     question: 'According to transportation problem, number of basic cells will be exactly:',
     options: ['m + n - 0', 'n + m - 1', 'm + n - 1', 'None of the above'],
     correctAnswer: 'm + n - 1',
@@ -1330,6 +1222,7 @@ export const quizData: Question[] = [
   {
     id: 154,
     subject: 'operationalResearch',
+    unit: 3,
     question: 'Before solving, the problem should be balanced. Make it balanced by adding ------------ column if demand < supply:',
     options: ['O, D', 'm, n', 'Horizontal, Vertical', 'Unshipped supply, Shortage'],
     correctAnswer: 'Unshipped supply, Shortage',
@@ -1338,6 +1231,7 @@ export const quizData: Question[] = [
   {
     id: 155,
     subject: 'operationalResearch',
+    unit: 2,
     question: 'In which phase is optimization done and optimality conditions checked?',
     options: ['Phase II', 'Phase I', 'Phase II', 'None of the above'],
     correctAnswer: 'Phase II',
@@ -1346,6 +1240,7 @@ export const quizData: Question[] = [
   {
     id: 156,
     subject: 'operationalResearch',
+    unit: 3,
     question: 'Optimality conditions are expressed as ------------ in case of all non-basic cells:',
     options: ['Negligent costs', 'Advanced costs', 'Reduced costs', 'None of the above'],
     correctAnswer: 'Reduced costs',
@@ -1354,6 +1249,7 @@ export const quizData: Question[] = [
   {
     id: 157,
     subject: 'operationalResearch',
+    unit: 3,
     question: 'A ------------ has rows/columns having non-basic cells for holding compensating (+) or (-) signs:',
     options: ['Cycle', 'Dead-end', 'Back track', 'None of the above'],
     correctAnswer: 'Cycle',
@@ -1362,6 +1258,7 @@ export const quizData: Question[] = [
   {
     id: 158,
     subject: 'operationalResearch',
+    unit: 3,
     question: 'After determining every basic cell in this cycle, adjustment is obtained as minimum value in basic cells. This is known as:',
     options: ['Adjustment amount', 'aa', 'Both A and B', 'Alternatives'],
     correctAnswer: 'Both A and B',
@@ -1370,6 +1267,7 @@ export const quizData: Question[] = [
   {
     id: 159,
     subject: 'operationalResearch',
+    unit: 3,
     question: 'Optimal solution is a feasible solution (not necessarily basic) which minimizes the:',
     options: ['Time taken', 'Partial cost', 'Total cost', 'None of the above'],
     correctAnswer: 'Total cost',
@@ -1378,6 +1276,7 @@ export const quizData: Question[] = [
   {
     id: 160,
     subject: 'operationalResearch',
+    unit: 3,
     question: 'State which statement is correct: (i) Cells in transportation table are classified as occupied and unoccupied (ii) Optimal solution maximizes total cost:',
     options: ['Both (i) and (ii)', 'Two only', 'One only', 'Both are incorrect'],
     correctAnswer: 'One only',
@@ -1386,6 +1285,7 @@ export const quizData: Question[] = [
   {
     id: 161,
     subject: 'operationalResearch',
+    unit: 3,
     question: 'The allocated cells in the transportation table are called:',
     options: ['Occupied cells', 'Empty cells', 'Both A and B', 'Unoccupied cells'],
     correctAnswer: 'Occupied cells',
@@ -1394,6 +1294,7 @@ export const quizData: Question[] = [
   {
     id: 162,
     subject: 'operationalResearch',
+    unit: 3,
     question: 'VAM stands for:',
     options: ["Vogeal's Approximation Method", "Vogel's Approximate Method", "Vangel's Approximation Method", "Vogel's Approximation Method"],
     correctAnswer: "Vogel's Approximation Method",
@@ -1402,6 +1303,7 @@ export const quizData: Question[] = [
   {
     id: 163,
     subject: 'operationalResearch',
+    unit: 3,
     question: 'Once the initial BFS has been computed, what is the next step in the transportation problem?',
     options: ['VAM', 'Modified distribution method', 'Optimality test', 'None of the above'],
     correctAnswer: 'Optimality test',
@@ -1410,6 +1312,7 @@ export const quizData: Question[] = [
   {
     id: 164,
     subject: 'operationalResearch',
+    unit: 3,
     question: 'One can find the initial basic feasible solution by using:',
     options: ['VAM', 'MODI', 'Optimality test', 'None of the above'],
     correctAnswer: 'VAM',
@@ -1418,6 +1321,7 @@ export const quizData: Question[] = [
   {
     id: 165,
     subject: 'operationalResearch',
+    unit: 3,
     question: 'What do we apply in order to determine the optimum solution?',
     options: ['LPP', 'VAM', 'MODI Method', 'None of the above'],
     correctAnswer: 'MODI Method',
@@ -1426,6 +1330,7 @@ export const quizData: Question[] = [
   {
     id: 166,
     subject: 'operationalResearch',
+    unit: 3,
     question: 'In a transportation problem, if the number of non-negative independent allocations is ------------ than m + n - 1:',
     options: ['Equivalent', 'Greater', 'Less', 'None of the above'],
     correctAnswer: 'Less',
@@ -1434,6 +1339,7 @@ export const quizData: Question[] = [
   {
     id: 167,
     subject: 'operationalResearch',
+    unit: 3,
     question: 'A given TP is said to be unbalanced if total supply is not equal to total:',
     options: ['Optimization', 'Demand', 'Cost', 'None of the above'],
     correctAnswer: 'Demand',
@@ -1442,6 +1348,7 @@ export const quizData: Question[] = [
   {
     id: 168,
     subject: 'operationalResearch',
+    unit: 3,
     question: 'If total supply is less than total demand, a dummy source (row) is included in the cost matrix with:',
     options: ['Dummy Demand', 'Dummy Supply', 'Zero Cost', 'Both A and B'],
     correctAnswer: 'Zero Cost',
@@ -1450,6 +1357,7 @@ export const quizData: Question[] = [
   {
     id: 169,
     subject: 'operationalResearch',
+    unit: 3,
     question: 'To find the optimal solution, we apply:',
     options: ['LPP', 'VAM', 'MODI Method', 'Rim'],
     correctAnswer: 'MODI Method',
@@ -1458,9 +1366,12 @@ export const quizData: Question[] = [
   {
     id: 170,
     subject: 'operationalResearch',
+    unit: 3,
     question: 'For maximization in transportation problem, the objective is to maximize the total:',
     options: ['Solution', 'Profit Matrix', 'Profit', 'None of the above'],
     correctAnswer: 'Profit',
     explanation: 'In maximization transportation problems, the goal is to maximize total profit rather than minimize cost.',
   },
 ]
+
+

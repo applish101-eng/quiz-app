@@ -1,22 +1,31 @@
 import { useState } from 'react'
 import SubjectGrid from './components/SubjectGrid'
+import UnitSelection from './components/UnitSelection'
 import QuizInterface from './components/QuizInterface'
 import ResultScreen from './components/ResultScreen'
 import { quizData } from './data/quizData'
 import type { Subject, Question } from './types'
 
-type Screen = 'home' | 'quiz' | 'result'
+type Screen = 'home' | 'units' | 'quiz' | 'result'
 
 export default function App() {
   const [screen, setScreen] = useState<Screen>('home')
   const [selectedSubject, setSelectedSubject] = useState<Subject | null>(null)
+  const [selectedUnit, setSelectedUnit] = useState<number | undefined>()
   const [currentQuestions, setCurrentQuestions] = useState<Question[]>([])
   const [answers, setAnswers] = useState<Record<number, string>>({})
   const [isReviseMode, setIsReviseMode] = useState(false)
 
   function handleSubjectSelect(subject: Subject) {
-    const filtered = quizData.filter((q) => q.subject === subject.name)
     setSelectedSubject(subject)
+    setScreen('units')
+  }
+
+  function handleUnitSelect(unit: number) {
+    setSelectedUnit(unit)
+    const filtered = quizData.filter(
+      (q) => q.subject === selectedSubject!.name && q.unit === unit
+    )
     setCurrentQuestions(filtered)
     setAnswers({})
     setIsReviseMode(false)
@@ -29,15 +38,23 @@ export default function App() {
   }
 
   function handleRevise(wrongQuestions: Question[]) {
+    setSelectedUnit(undefined)
     setCurrentQuestions(wrongQuestions)
     setAnswers({})
     setIsReviseMode(true)
     setScreen('quiz')
   }
 
+  function handleBackToUnits() {
+    setScreen('units')
+    setAnswers({})
+    setIsReviseMode(false)
+  }
+
   function handleHome() {
     setScreen('home')
     setSelectedSubject(null)
+    setSelectedUnit(undefined)
     setCurrentQuestions([])
     setAnswers({})
     setIsReviseMode(false)
@@ -56,11 +73,20 @@ export default function App() {
           <SubjectGrid onSelect={handleSubjectSelect} />
         )}
 
+        {screen === 'units' && (
+          <UnitSelection
+            onSelect={handleUnitSelect}
+            onBack={handleHome}
+          />
+        )}
+
         {screen === 'quiz' && selectedSubject && (
           <QuizInterface
             questions={currentQuestions}
             subject={selectedSubject}
+            unit={isReviseMode ? undefined : selectedUnit}
             onComplete={handleQuizComplete}
+            onBack={isReviseMode ? undefined : handleBackToUnits}
             isRevise={isReviseMode}
           />
         )}
@@ -69,9 +95,12 @@ export default function App() {
           <ResultScreen
             questions={currentQuestions}
             subject={selectedSubject}
+            unit={isReviseMode ? undefined : selectedUnit}
             answers={answers}
             onRevise={handleRevise}
             onHome={handleHome}
+            onBack={isReviseMode ? undefined : handleBackToUnits}
+            isRevise={isReviseMode}
           />
         )}
       </main>
