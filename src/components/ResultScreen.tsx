@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import { Button } from './ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card'
 import { Progress } from './ui/progress'
-import { CheckCircle2, XCircle, Home, RotateCcw, BookOpen } from 'lucide-react'
+import { CheckCircle2, XCircle, Home, RotateCcw, BookOpen, Star } from 'lucide-react'
 import type { Question, Subject } from '../types'
 import { units } from '../data/quizData'
 
@@ -114,6 +114,20 @@ export default function ResultScreen({
                 <p className="mb-2 text-sm font-medium">
                   {idx + 1}. {q.question}
                 </p>
+                <div className="mb-2 flex flex-wrap gap-1.5">
+                  {q.isImportant && (
+                    <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-medium text-amber-700 dark:bg-amber-900/30 dark:text-amber-400">
+                      <Star className="h-2.5 w-2.5" />
+                      Important
+                    </span>
+                  )}
+                  {q.isPreviouslyAsked && (
+                    <span className="inline-flex items-center gap-1 rounded-full bg-blue-100 px-2 py-0.5 text-[10px] font-medium text-blue-700 dark:bg-blue-900/30 dark:text-blue-400">
+                      <BookOpen className="h-2.5 w-2.5" />
+                      Previously Asked
+                    </span>
+                  )}
+                </div>
                 <div className="mb-2 space-y-1">
                   {q.options.map((opt) => {
                     const isUserAnswer = answers[q.id] === opt

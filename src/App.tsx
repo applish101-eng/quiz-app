@@ -73,8 +73,9 @@ export default function App() {
           <SubjectGrid onSelect={handleSubjectSelect} />
         )}
 
-        {screen === 'units' && (
+        {screen === 'units' && selectedSubject && (
           <UnitSelection
+            subject={selectedSubject}
             onSelect={handleUnitSelect}
             onBack={handleHome}
           />

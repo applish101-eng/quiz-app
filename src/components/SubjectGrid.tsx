@@ -19,7 +19,7 @@ export default function SubjectGrid({ onSelect }: SubjectGridProps) {
             <div
               className={`flex h-32 items-center justify-center bg-gradient-to-br ${subject.color}`}
             >
-              <span className="text-5xl">📊</span>
+              <span className="text-5xl">{subject.icon}</span>
             </div>
             <CardHeader className="text-center">
               <CardTitle className="text-2xl">{subject.label}</CardTitle>

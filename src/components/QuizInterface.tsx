@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Button } from './ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card'
 import { Progress } from './ui/progress'
-import { CheckCircle2, XCircle, ChevronRight, Lightbulb, Trophy, ArrowLeft } from 'lucide-react'
+import { CheckCircle2, XCircle, ChevronRight, Lightbulb, Trophy, ArrowLeft, Star, BookOpen } from 'lucide-react'
 import type { Question, Subject } from '../types'
 import { units } from '../data/quizData'
 
@@ -119,6 +119,20 @@ export default function QuizInterface({
 
       <Card className="mb-4">
         <CardHeader>
+          <div className="mb-2 flex flex-wrap gap-2">
+            {currentQuestion.isImportant && (
+              <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-medium text-amber-700 dark:bg-amber-900/30 dark:text-amber-400">
+                <Star className="h-3 w-3" />
+                Important
+              </span>
+            )}
+            {currentQuestion.isPreviouslyAsked && (
+              <span className="inline-flex items-center gap-1 rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-700 dark:bg-blue-900/30 dark:text-blue-400">
+                <BookOpen className="h-3 w-3" />
+                Previously Asked
+              </span>
+            )}
+          </div>
           <CardTitle className="text-lg leading-relaxed sm:text-xl">
             {currentQuestion.question}
           </CardTitle>
