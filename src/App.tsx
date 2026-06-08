@@ -3,10 +3,11 @@ import SubjectGrid from './components/SubjectGrid'
 import UnitSelection from './components/UnitSelection'
 import QuizInterface from './components/QuizInterface'
 import ResultScreen from './components/ResultScreen'
+import GisNotesScreen from './components/GisNotesScreen'
 import { quizData } from './data/quizData'
 import type { Subject, Question } from './types'
 
-type Screen = 'home' | 'units' | 'quiz' | 'result'
+type Screen = 'home' | 'units' | 'quiz' | 'result' | 'notes'
 
 export default function App() {
   const [screen, setScreen] = useState<Screen>('home')
@@ -60,6 +61,10 @@ export default function App() {
     setIsReviseMode(false)
   }
 
+  function handleOpenNotes() {
+    setScreen('notes')
+  }
+
   return (
     <div className="flex min-h-screen flex-col bg-gradient-to-b from-background to-muted/30">
       <header className="border-b bg-background/80 backdrop-blur-sm">
@@ -70,7 +75,11 @@ export default function App() {
 
       <main className="flex-1">
         {screen === 'home' && (
-          <SubjectGrid onSelect={handleSubjectSelect} />
+          <SubjectGrid onSelect={handleSubjectSelect} onOpenNotes={handleOpenNotes} />
+        )}
+
+        {screen === 'notes' && (
+          <GisNotesScreen onBack={handleHome} />
         )}
 
         {screen === 'units' && selectedSubject && (

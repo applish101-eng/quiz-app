@@ -1,14 +1,27 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card'
+import { Button } from './ui/button'
+import { FileText } from 'lucide-react'
 import { subjects } from '../data/quizData'
 import type { Subject } from '../types'
 
 interface SubjectGridProps {
   onSelect: (subject: Subject) => void
+  onOpenNotes: () => void
 }
 
-export default function SubjectGrid({ onSelect }: SubjectGridProps) {
+export default function SubjectGrid({ onSelect, onOpenNotes }: SubjectGridProps) {
   return (
-    <div className="mx-auto flex min-h-[80vh] w-full max-w-lg items-center justify-center px-4 py-8 sm:px-6">
+    <div className="mx-auto flex min-h-[80vh] w-full max-w-lg flex-col items-center justify-center gap-6 px-4 py-8 sm:px-6">
+      <Button
+        variant="outline"
+        size="lg"
+        onClick={onOpenNotes}
+        className="w-full"
+      >
+        <FileText className="h-5 w-5" />
+        GIS Summary Notes
+      </Button>
+
       {subjects.map((subject) => (
         <button
           key={subject.name}
