@@ -308,7 +308,7 @@ export default function QuizInterface({
               <Button
                 onClick={handleSubmit}
                 disabled={!selectedOption}
-                size="lg"
+                size="default"
               >
                 Submit Answer
               </Button>
