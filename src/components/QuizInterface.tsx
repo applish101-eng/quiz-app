@@ -2,9 +2,10 @@ import { useState } from 'react'
 import { Button } from './ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card'
 import { Progress } from './ui/progress'
-import { CheckCircle2, XCircle, ChevronRight, Lightbulb, Trophy, ArrowLeft, Star, BookOpen } from 'lucide-react'
+import { CheckCircle2, XCircle, ChevronLeft, ChevronRight, Lightbulb, Trophy, Star, BookOpen } from 'lucide-react'
 import type { Question, Subject } from '../types'
 import { units } from '../data/quizData'
+import { cn } from '../lib/utils'
 
 interface QuizInterfaceProps {
   questions: Question[]
@@ -24,45 +25,54 @@ export default function QuizInterface({
   isRevise = false,
 }: QuizInterfaceProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
-  const [selectedOption, setSelectedOption] = useState<string | null>(null)
-  const [isSubmitted, setIsSubmitted] = useState(false)
-  const [showExplanation, setShowExplanation] = useState(false)
-  const [showHint, setShowHint] = useState(false)
+  const [selectedOptions, setSelectedOptions] = useState<Record<number, string | null>>({})
+  const [submittedQuestions, setSubmittedQuestions] = useState<Record<number, boolean>>({})
   const [answers, setAnswers] = useState<Record<number, string>>({})
-  const [score, setScore] = useState(0)
+  const [showHint, setShowHint] = useState(false)
+  const [showExplanation, setShowExplanation] = useState(false)
 
   const currentQuestion = questions[currentIndex]
   const totalQuestions = questions.length
   const progress = ((currentIndex + 1) / totalQuestions) * 100
   const isLastQuestion = currentIndex === totalQuestions - 1
+  const isFirstQuestion = currentIndex === 0
+
+  const selectedOption = selectedOptions[currentQuestion.id] ?? null
+  const isSubmitted = submittedQuestions[currentQuestion.id] ?? false
+
+  const score = Object.entries(answers).filter(
+    ([id, answer]) => questions.find((q) => q.id === Number(id))?.correctAnswer === answer
+  ).length
 
   function handleSelect(option: string) {
     if (isSubmitted) return
-    setSelectedOption(option)
+    setSelectedOptions((prev) => ({ ...prev, [currentQuestion.id]: option }))
   }
 
   function handleSubmit() {
     if (!selectedOption) return
-    setIsSubmitted(true)
+    setSubmittedQuestions((prev) => ({ ...prev, [currentQuestion.id]: true }))
     setAnswers((prev) => ({ ...prev, [currentQuestion.id]: selectedOption }))
+    setShowExplanation(false)
+    setShowHint(false)
+  }
 
-    if (selectedOption === currentQuestion.correctAnswer) {
-      setScore((prev) => prev + 1)
-    }
+  function goToQuestion(index: number) {
+    setCurrentIndex(index)
+    setShowExplanation(false)
+    setShowHint(false)
+  }
+
+  function handlePrevious() {
+    if (currentIndex > 0) goToQuestion(currentIndex - 1)
   }
 
   function handleNext() {
     if (isLastQuestion) {
-      const finalAnswers = { ...answers, [currentQuestion.id]: selectedOption ?? '' }
-      onComplete(finalAnswers, score)
+      onComplete(answers, score)
       return
     }
-
-    setCurrentIndex((prev) => prev + 1)
-    setSelectedOption(null)
-    setIsSubmitted(false)
-    setShowExplanation(false)
-    setShowHint(false)
+    goToQuestion(currentIndex + 1)
   }
 
   function getOptionStyle(option: string): string {
@@ -101,7 +111,7 @@ export default function QuizInterface({
           <span className="flex items-center gap-2">
             {onBack && !isRevise && (
               <button onClick={onBack} className="hover:text-foreground">
-                <ArrowLeft className="h-4 w-4" />
+                <ChevronLeft className="h-4 w-4" />
               </button>
             )}
             {isRevise
@@ -116,6 +126,33 @@ export default function QuizInterface({
         </div>
         <Progress value={progress} className="h-2" />
       </div>
+
+      {/* Question navigation dots */}
+      {totalQuestions > 1 && (
+        <div className="mb-4 flex flex-wrap items-center justify-center gap-1.5">
+          {questions.map((q, i) => {
+            const answered = answers[q.id] !== undefined
+            const isActive = i === currentIndex
+            return (
+              <button
+                key={q.id}
+                onClick={() => goToQuestion(i)}
+                className={cn(
+                  'flex h-8 w-8 items-center justify-center rounded-full text-xs font-medium transition-all duration-200',
+                  isActive && 'ring-2 ring-primary ring-offset-2 ring-offset-background',
+                  answered
+                    ? answers[q.id] === q.correctAnswer
+                      ? 'bg-success/20 text-success hover:bg-success/30'
+                      : 'bg-destructive/20 text-destructive hover:bg-destructive/30'
+                    : 'bg-muted text-muted-foreground hover:bg-muted/80'
+                )}
+              >
+                {i + 1}
+              </button>
+            )
+          })}
+        </div>
+      )}
 
       <Card className="mb-4">
         <CardHeader>
@@ -171,35 +208,48 @@ export default function QuizInterface({
             </Card>
           )}
 
-          <div className="flex flex-wrap gap-3">
-            {!showExplanation && (
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div className="flex items-center gap-2">
+              {!showExplanation && (
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setShowExplanation(true)}
+                >
+                  <Lightbulb className="h-4 w-4" />
+                  Show Explanation
+                </Button>
+              )}
+            </div>
+
+            <div className="flex items-center gap-2">
               <Button
                 variant="outline"
-                size="sm"
-                onClick={() => setShowExplanation(true)}
+                size="default"
+                onClick={handlePrevious}
+                disabled={isFirstQuestion}
               >
-                <Lightbulb className="h-4 w-4" />
-                Show Explanation
+                <ChevronLeft className="h-4 w-4" />
+                Previous
               </Button>
-            )}
 
-            <Button
-              onClick={handleNext}
-              size={isLastQuestion ? 'lg' : 'default'}
-              className="ml-auto"
-            >
-              {isLastQuestion ? (
-                <>
-                  <Trophy className="h-4 w-4" />
-                  See Results
-                </>
-              ) : (
-                <>
-                  Next
-                  <ChevronRight className="h-4 w-4" />
-                </>
-              )}
-            </Button>
+              <Button
+                onClick={handleNext}
+                size={isLastQuestion ? 'lg' : 'default'}
+              >
+                {isLastQuestion ? (
+                  <>
+                    <Trophy className="h-4 w-4" />
+                    See Results
+                  </>
+                ) : (
+                  <>
+                    Next
+                    <ChevronRight className="h-4 w-4" />
+                  </>
+                )}
+              </Button>
+            </div>
           </div>
         </div>
       )}
@@ -220,36 +270,49 @@ export default function QuizInterface({
             </Card>
           )}
 
-          <div className="flex flex-wrap justify-between gap-3">
-            {!showHint && (
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => setShowHint(true)}
-              >
-                <Lightbulb className="h-4 w-4" />
-                Show Explanation
-              </Button>
-            )}
-            {showHint && (
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => setShowHint(false)}
-              >
-                <Lightbulb className="h-4 w-4" />
-                Hide Explanation
-              </Button>
-            )}
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div className="flex items-center gap-2">
+              {!showHint && (
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setShowHint(true)}
+                >
+                  <Lightbulb className="h-4 w-4" />
+                  Show Explanation
+                </Button>
+              )}
+              {showHint && (
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setShowHint(false)}
+                >
+                  <Lightbulb className="h-4 w-4" />
+                  Hide Explanation
+                </Button>
+              )}
+            </div>
 
-            <Button
-              onClick={handleSubmit}
-              disabled={!selectedOption}
-              size="lg"
-              className="w-full sm:w-auto"
-            >
-              Submit Answer
-            </Button>
+            <div className="flex items-center gap-2">
+              <Button
+                variant="outline"
+                size="default"
+                onClick={handlePrevious}
+                disabled={isFirstQuestion}
+              >
+                <ChevronLeft className="h-4 w-4" />
+                Previous
+              </Button>
+
+              <Button
+                onClick={handleSubmit}
+                disabled={!selectedOption}
+                size="lg"
+              >
+                Submit Answer
+              </Button>
+            </div>
           </div>
         </div>
       )}
