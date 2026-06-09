@@ -127,33 +127,6 @@ export default function QuizInterface({
         <Progress value={progress} className="h-2" />
       </div>
 
-      {/* Question navigation dots */}
-      {totalQuestions > 1 && (
-        <div className="mb-4 flex flex-wrap items-center justify-center gap-1.5">
-          {questions.map((q, i) => {
-            const answered = answers[q.id] !== undefined
-            const isActive = i === currentIndex
-            return (
-              <button
-                key={q.id}
-                onClick={() => goToQuestion(i)}
-                className={cn(
-                  'flex h-8 w-8 items-center justify-center rounded-full text-xs font-medium transition-all duration-200',
-                  isActive && 'ring-2 ring-primary ring-offset-2 ring-offset-background',
-                  answered
-                    ? answers[q.id] === q.correctAnswer
-                      ? 'bg-success/20 text-success hover:bg-success/30'
-                      : 'bg-destructive/20 text-destructive hover:bg-destructive/30'
-                    : 'bg-muted text-muted-foreground hover:bg-muted/80'
-                )}
-              >
-                {i + 1}
-              </button>
-            )
-          })}
-        </div>
-      )}
-
       <Card className="mb-4">
         <CardHeader>
           <div className="mb-2 flex flex-wrap gap-2">
@@ -191,6 +164,33 @@ export default function QuizInterface({
           </div>
         </CardContent>
       </Card>
+
+      {/* Question navigation dots */}
+      {totalQuestions > 1 && (
+        <div className="mb-4 flex flex-wrap items-center justify-center gap-1.5">
+          {questions.map((q, i) => {
+            const answered = answers[q.id] !== undefined
+            const isActive = i === currentIndex
+            return (
+              <button
+                key={q.id}
+                onClick={() => goToQuestion(i)}
+                className={cn(
+                  'flex h-8 w-8 items-center justify-center rounded-full text-xs font-medium transition-all duration-200',
+                  isActive && 'ring-2 ring-primary ring-offset-2 ring-offset-background',
+                  answered
+                    ? answers[q.id] === q.correctAnswer
+                      ? 'bg-success/20 text-success hover:bg-success/30'
+                      : 'bg-destructive/20 text-destructive hover:bg-destructive/30'
+                    : 'bg-muted text-muted-foreground hover:bg-muted/80'
+                )}
+              >
+                {i + 1}
+              </button>
+            )
+          })}
+        </div>
+      )}
 
       {isSubmitted && (
         <div className="space-y-4 animate-in slide-in-from-bottom-2 fade-in duration-300">

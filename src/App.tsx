@@ -1,21 +1,44 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { Sun, Moon } from 'lucide-react'
 import SubjectGrid from './components/SubjectGrid'
 import UnitSelection from './components/UnitSelection'
 import QuizInterface from './components/QuizInterface'
 import ResultScreen from './components/ResultScreen'
 import GisNotesScreen from './components/GisNotesScreen'
+import MultimediaNotesScreen from './components/MultimediaNotesScreen'
 import { quizData } from './data/quizData'
 import type { Subject, Question } from './types'
 
 type Screen = 'home' | 'units' | 'quiz' | 'result' | 'notes'
 
+function useTheme() {
+  const [dark, setDark] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const stored = localStorage.getItem('theme')
+      if (stored) return stored === 'dark'
+      return window.matchMedia('(prefers-color-scheme: dark)').matches
+    }
+    return false
+  })
+
+  useEffect(() => {
+    const root = document.documentElement
+    root.classList.toggle('dark', dark)
+    localStorage.setItem('theme', dark ? 'dark' : 'light')
+  }, [dark])
+
+  return { dark, toggle: () => setDark((d) => !d) }
+}
+
 export default function App() {
+  const { dark, toggle: toggleTheme } = useTheme()
   const [screen, setScreen] = useState<Screen>('home')
   const [selectedSubject, setSelectedSubject] = useState<Subject | null>(null)
   const [selectedUnit, setSelectedUnit] = useState<number | undefined>()
   const [currentQuestions, setCurrentQuestions] = useState<Question[]>([])
   const [answers, setAnswers] = useState<Record<number, string>>({})
   const [isReviseMode, setIsReviseMode] = useState(false)
+  const [notesSubject, setNotesSubject] = useState<'gis' | 'multimedia'>('gis')
 
   function handleSubjectSelect(subject: Subject) {
     setSelectedSubject(subject)
@@ -61,15 +84,23 @@ export default function App() {
     setIsReviseMode(false)
   }
 
-  function handleOpenNotes() {
+  function handleOpenNotes(subject: 'gis' | 'multimedia') {
+    setNotesSubject(subject)
     setScreen('notes')
   }
 
   return (
     <div className="flex min-h-screen flex-col bg-gradient-to-b from-background to-muted/30">
       <header className="border-b bg-background/80 backdrop-blur-sm">
-        <div className="mx-auto flex h-14 max-w-5xl items-center px-4 sm:px-6">
+        <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-4 sm:px-6">
           <span className="text-lg font-bold tracking-tight">QuizMaster</span>
+          <button
+            onClick={toggleTheme}
+            className="flex h-9 w-9 items-center justify-center rounded-md text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+            aria-label="Toggle theme"
+          >
+            {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+          </button>
         </div>
       </header>
 
@@ -78,8 +109,12 @@ export default function App() {
           <SubjectGrid onSelect={handleSubjectSelect} onOpenNotes={handleOpenNotes} />
         )}
 
-        {screen === 'notes' && (
+        {screen === 'notes' && notesSubject === 'gis' && (
           <GisNotesScreen onBack={handleHome} />
+        )}
+
+        {screen === 'notes' && notesSubject === 'multimedia' && (
+          <MultimediaNotesScreen onBack={handleHome} />
         )}
 
         {screen === 'units' && selectedSubject && (

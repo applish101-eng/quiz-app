@@ -6,7 +6,7 @@ import type { Subject } from '../types'
 
 interface SubjectGridProps {
   onSelect: (subject: Subject) => void
-  onOpenNotes: () => void
+  onOpenNotes: (subject: 'gis' | 'multimedia') => void
 }
 
 export default function SubjectGrid({ onSelect, onOpenNotes }: SubjectGridProps) {
@@ -15,11 +15,21 @@ export default function SubjectGrid({ onSelect, onOpenNotes }: SubjectGridProps)
       <Button
         variant="outline"
         size="lg"
-        onClick={onOpenNotes}
+        onClick={() => onOpenNotes('gis')}
         className="w-full"
       >
         <FileText className="h-5 w-5" />
         GIS Summary Notes
+      </Button>
+
+      <Button
+        variant="outline"
+        size="lg"
+        onClick={() => onOpenNotes('multimedia')}
+        className="w-full"
+      >
+        <FileText className="h-5 w-5" />
+        Multimedia Summary Notes
       </Button>
 
       {subjects.map((subject) => (
